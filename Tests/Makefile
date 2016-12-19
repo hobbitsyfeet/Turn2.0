@@ -4,7 +4,7 @@ CFLAGS = -I../include/
 PROGRAM_TEST = tests
 SRC = ../src
 WRLDBLKS = $(SRC)/World/WorldBlocks
-SRC_OBJS =	$(SRC)/Colours.o $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o
+SRC_OBJS =	$(SRC)/Colours.o $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o $(WRLDBLKS)/DeepWater.o
 
 ## ADD YOUR TEST OBJECTS TO HERE
 TEST_OBJS = main.o

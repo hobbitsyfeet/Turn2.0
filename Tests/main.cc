@@ -1,6 +1,7 @@
 #include "WorldBlocks/Grass.h"
 #include "WorldBlocks/WorldBlock.h"
-#include "WorldBlocks/shallowWater.h"
+#include "WorldBlocks/ShallowWater.h"
+#include "WorldBlocks/DeepWater.h"
 #include "Colours.h"
 int main(){
 Colours format;
@@ -44,8 +45,14 @@ cout<<format.defaults()<<endl;
 	cout<<endl;
 	delete block;
 
-	block = new shallowWater;
+	block = new ShallowWater;
 	cout<<format.white()<<"ShallowWater:";
+	block->display();
+	cout<<endl;
+	delete block;
+
+	block = new DeepWater;
+	cout<<format.white()<<"DeepWater:";
 	block->display();
 	delete block;
 	return 0;

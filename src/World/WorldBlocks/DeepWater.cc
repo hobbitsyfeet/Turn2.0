@@ -1,11 +1,11 @@
-#include "WorldBlocks/ShallowWater.h"
+#include "WorldBlocks/DeepWater.h"
 #include "Colours.h"
 #include<iostream>
 using namespace std;
 
-ShallowWater::ShallowWater(){
+DeepWater::DeepWater(){
 	Colours effect;
-	format = effect.lightBlue();
+	format = effect.blue();
 	type = '~';
 	collision = true;
 }

@@ -3,9 +3,9 @@
 
 #include "WorldBlock.h"
 
-class shallowWater : public WorldBlock{
+class ShallowWater : public WorldBlock{
 public:
-	shallowWater();
+	ShallowWater();
 private:
 };
 #endif //SHALLOWWATER_H
