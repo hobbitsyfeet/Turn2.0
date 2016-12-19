@@ -5,7 +5,7 @@ using namespace std;
 
 Grass::Grass(){
 	Colours effect;
-	//cout<<prefix.green()<<"test";
 	format = effect.green();
 	type = ',';
+	collision = false;
 }

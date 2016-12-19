@@ -3,7 +3,8 @@ CCC = g++
 CFLAGS = -I../include/
 PROGRAM_TEST = tests
 SRC = ../src
-SRC_OBJS =	$(SRC)/Colours.o $(SRC)/World/WorldBlocks/WorldBlock.o $(SRC)/World/WorldBlocks/Grass.o
+WRLDBLKS = $(SRC)/World/WorldBlocks
+SRC_OBJS =	$(SRC)/Colours.o $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o
 
 ## ADD YOUR TEST OBJECTS TO HERE
 TEST_OBJS = main.o
