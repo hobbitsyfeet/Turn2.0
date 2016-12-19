@@ -1,5 +1,5 @@
-#include "../include/WorldBlocks/Grass.h"
-#include "../include/WorldBlocks/WorldBlock.h"
+#include "WorldBlocks/Grass.h"
+#include "WorldBlocks/WorldBlock.h"
 #include "Colours.h"
 int main(){
 Colours format;
@@ -37,7 +37,7 @@ cout<<format.black()<<format.whitebg()<<"WHITEBG";
 
 cout<<format.defaults()<<endl;
 
-	WorldBlock* block = new Dirt;
+	WorldBlock* block = new Grass;
 	block->display();
 	return 0;
 }

@@ -1,9 +1,9 @@
-#include "WorldBlocks/Dirt.h"
+#include "WorldBlocks/Grass.h"
 #include "Colours.h"
 #include<iostream>
 using namespace std;
 
-Dirt::Dirt(){
+Grass::Grass(){
 	Colours effect;
 	//cout<<prefix.green()<<"test";
 	format = effect.green();

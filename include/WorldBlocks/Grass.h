@@ -3,9 +3,9 @@
 
 #include "WorldBlock.h"
 
-class Dirt : public WorldBlock{
+class Grass : public WorldBlock{
 public:
-	Dirt();
+	Grass();
 private:
 };
 #endif //DIRT_H
