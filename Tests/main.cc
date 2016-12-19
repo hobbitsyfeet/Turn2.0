@@ -1,4 +1,4 @@
-#include "../include/WorldBlocks/Dirt.h"
+#include "../include/WorldBlocks/Grass.h"
 #include "../include/WorldBlocks/WorldBlock.h"
 #include "Colours.h"
 int main(){
