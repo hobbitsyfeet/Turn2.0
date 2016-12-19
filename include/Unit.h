@@ -1,6 +1,10 @@
 #ifndef UNIT_H
 #define UNIT_H
-#include "Combat.h"
+
+//#include "Combat.h"
+#include <iostream>
+
+using namespace std;
 
 class Unit{
 
@@ -9,16 +13,16 @@ public:
 	void setName(string);
 
 	int getHP()const;
-	void setHP();
+	void setHP(int);
 
 	int getMaxHP()const;
-	void setMaxHP();
+	void setMaxHP(int);
 
 	int getMana()const;
-	void setMana();
+	void setMana(int);
 
 	int getMaxMana()const;
-	void setMaxMana();
+	void setMaxMana(int);
 
 private:
 	string name;
@@ -26,4 +30,4 @@ private:
 	int mana, maxMana;
 };
 
-#endif UNIT_H
+#endif //UNIT_H

@@ -5,6 +5,7 @@
 #include "Colours.h"
 int main(){
 Colours format;
+WorldBlock* block;
 
 cout<<format.red()<<"RED\n";
 cout<<format.yellow()<<"YELLOW\n";
@@ -39,7 +40,7 @@ cout<<format.black()<<format.whitebg()<<"WHITEBG";
 
 cout<<format.defaults()<<endl;
 
-	WorldBlock* block = new Grass;
+	block = new Grass;
 	cout<<"grass:";
 	block->display();
 	cout<<endl;
@@ -55,5 +56,6 @@ cout<<format.defaults()<<endl;
 	cout<<format.white()<<"DeepWater:";
 	block->display();
 	delete block;
+
 	return 0;
 }

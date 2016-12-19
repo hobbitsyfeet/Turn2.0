@@ -3,7 +3,7 @@
 
 #include "WorldBlock.h"
 
-class Grass : public WorldBlock{
+class Grass : public OccupyBlock{
 public:
 	Grass();
 private:

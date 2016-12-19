@@ -3,7 +3,7 @@
 
 #include "WorldBlock.h"
 
-class ShallowWater : public WorldBlock{
+class ShallowWater : public OccupyBlock{
 public:
 	ShallowWater();
 private:

@@ -1,15 +1,15 @@
-#include "../../../include/WorldBlocks/WorldBlock.h"
+#include "WorldBlocks/WorldBlock.h"
 
 #include <fstream>
 #include <iostream>
 using namespace std;
 
 void WorldBlock::saveWorldBlock( ofstream& fout ){
-	fout<<' '<<format<<' '<<type<<' '<<collision;
+	fout<<" 0"<<' '<<format<<' '<<type<<' '<<collision;
 }
 
 void WorldBlock::loadWorldBlock( ifstream& fin ){
-	fin>>format>>type;
+	fin>>format>>type>>collision;
 }
 
 void WorldBlock::display(){

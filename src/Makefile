@@ -3,7 +3,9 @@ CCC = g++
 CFLAGS = -I../include/
 PROGRAM = Turn
 SRC = .
-SRC_OBJS = $(SRC)/main.o	$(SRC)/Colours.o $(SRC)/World/WorldBlocks/WorldBlock.o $(SRC)/World/WorldBlocks/Grass.o
+WRLDBLKS = $(SRC)/World/WorldBlocks
+WORLD_OBJS = $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o $(WRLDBLKS)/DeepWater.o $(WRLDBLKS)/OccupyBlock.o
+SRC_OBJS = $(SRC)/main.o	$(SRC)/Colours.o $(SRC)/Units/Unit.o $(SRC)/Combat.o $(WORLD_OBJS)
 
 ## ADD YOUR TEST OBJECTS TO HERE
 
@@ -19,10 +21,10 @@ $(PROGRAM): $(ALL_OBJS)
 
 
 clean:
-	rm -rf *~ $(SRC_OBJS) $(SRC_OBS) 
+	rm -rf *~ $(SRC_OBJS)
 
 clean-all: clean
 	rm -f $(PROGRAM)
 
 run:
-	.\$(PROGRAM_TEST)
+	.\$(PROGRAM)
