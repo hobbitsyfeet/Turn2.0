@@ -1,17 +1,22 @@
 #ifndef WORLDBLOCK_H
 #define WORLDBLOCK_H
 
+	#include <fstream>
+	#include<iostream>
+
+using namespace std;
+
 class WorldBlock{
 public:
-	void saveWorldBlock();
-	void loadWorldBlock();
+	void saveWorldBlock( ofstream& );
+	void loadWorldBlock( ifstream&);
 
 	void display();
 
 	bool getCollision();
-private:
-	char type;
+protected:
 	string format;
+	char type;
 	bool collision;
 };
 

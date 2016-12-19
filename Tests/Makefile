@@ -1,21 +1,22 @@
 CCC = g++
 #CFLAGS= -Wall -g -std=c++11
+CFLAGS = -I ../include/ 
 PROGRAM_TEST = tests
 SRC = ../src
-SRC_OBJS =	../src/Colours.o
+SRC_OBJS =	$(SRC)/Colours.o $(SRC)/World/WorldBlocks/WorldBlock.o $(SRC)/World/WorldBlocks/Dirt.o
 
 ## ADD YOUR TEST OBJECTS TO HERE
-TEST_OBJS = TestColours.o ../src/Colours.o
+TEST_OBJS = main.o
 
 ALL_OBJS = $(TEST_OBJS) $(SRC_OBJS)
 
 
 # default rule for compiling .cc to .o
 %.o: %.cc
-	$(CCC) -c $< -o $(patsubst %.cc,%.o,$<)
+	$(CCC) $(CFLAGS) -c $< -o $(patsubst %.cc,%.o,$<)
 
 $(PROGRAM_TEST): $(ALL_OBJS)
-	$(CCC) -o $@ $^
+	$(CCC) $(CFLAGS) -o $@ $^
 
 
 clean:

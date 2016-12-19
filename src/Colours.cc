@@ -96,11 +96,11 @@ string Colours::lightCyan(){
 */
 
 string Colours::redbg(){
-	string colour = "\033[42m";
+	string colour = "\033[41m";
 	return colour;
 }
 string Colours::greenbg(){
-	string colour = "\033[41m";
+	string colour = "\033[42m";
 	return colour;
 }
 string Colours::bluebg(){
@@ -117,5 +117,34 @@ string Colours::cyanbg(){
 }
 string Colours::whitebg(){
 	string colour = "\033[47m";
+	return colour;
+}
+
+string Colours::defaults(){
+	string colour = "\033[0m";
+	return colour;
+}
+string Colours::bold(){
+	string colour = "\033[1m";
+	return colour;
+}
+
+string Colours::underline(){
+	string colour = "\033[4m";
+	return colour;
+}
+
+string Colours::blink(){
+	string colour = "\033[5m";
+	return colour;
+}
+
+string Colours::inverse(){
+	string colour = "\033[7m";
+	return colour;
+}
+
+string Colours::conceal(){
+	string colour = "\033[8m";
 	return colour;
 }

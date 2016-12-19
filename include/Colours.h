@@ -33,6 +33,13 @@ public:
 	string magentabg();
 	string cyanbg();
 	string whitebg();
+
+	string underline();
+	string bold();
+	string blink();
+	string inverse();
+	string defaults();
+	string conceal();
 };
 
 #endif //COLOURS_H
