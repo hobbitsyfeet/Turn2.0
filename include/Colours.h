@@ -33,7 +33,6 @@ public:
 	string magentabg();
 	string cyanbg();
 	string whitebg();
-
 };
 
 #endif //COLOURS_H
