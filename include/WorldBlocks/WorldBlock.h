@@ -8,15 +8,18 @@ using namespace std;
 
 class WorldBlock{
 public:
-	virtual	void saveWorldBlock( ofstream& );
-	virtual void loadWorldBlock( ifstream& );
+	void saveWorldBlock( ofstream& );
+ 	void loadWorldBlock( ifstream& );
 
 	void display();
 
 	bool getCollision();
 
 protected:
+	int x,y;
+
 	string format;
+	string name;
 	char type;
 	bool collision;
 private:

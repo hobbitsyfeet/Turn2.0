@@ -5,11 +5,11 @@
 using namespace std;
 
 void WorldBlock::saveWorldBlock( ofstream& fout ){
-	fout<<" 0"<<' '<<format<<' '<<type<<' '<<collision;
+	fout<<' '<<name;
 }
 
 void WorldBlock::loadWorldBlock( ifstream& fin ){
-	fin>>format>>type>>collision;
+	fin>>name;
 }
 
 void WorldBlock::display(){

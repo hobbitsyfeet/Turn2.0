@@ -5,6 +5,7 @@ using namespace std;
 
 ShallowWater::ShallowWater(){
 	Colours effect;
+	name = "ShallowWater";
 	format = effect.lightBlue();
 	type = '~';
 	collision = true;

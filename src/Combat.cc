@@ -4,8 +4,11 @@
 
 using namespace std;
 
-void Combat::targetUnit(Unit&){}
+void Combat::targetUnit(Unit& setTarget){
+	//target = setTarget;
+}
 
-void Combat::getInfo(Unit&){}
+void Combat::getInfo(Unit&){
+}
 
 void Combat::attack(){}
