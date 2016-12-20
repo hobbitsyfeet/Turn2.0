@@ -24,6 +24,9 @@ public:
 	int getMaxMana()const;
 	void setMaxMana(int);
 
+	void move(int x,int y);
+	string statBar(int stat,int maxStat, string colour);
+
 private:
 	string name;
 	int HP, maxHP;

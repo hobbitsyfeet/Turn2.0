@@ -57,5 +57,32 @@ cout<<format.defaults()<<endl;
 	block->display();
 	delete block;
 
+	Unit test;
+	cout<<endl;
+	cout<<test.statBar(3,10,"Green")<<endl;
+	cout<<test.statBar(5,10,"Green")<<endl;
+	cout<<test.statBar(10,10,"Green")<<endl;
+	cout<<test.statBar(3,10,"Blue")<<endl;
+	cout<<test.statBar(5,10,"Blue")<<endl;
+	cout<<test.statBar(10,10,"Blue")<<endl;
+	cout<<test.statBar(3,10,"Red")<<endl;
+	cout<<test.statBar(5,10,"Red")<<endl;
+	cout<<test.statBar(10,10,"Red")<<endl;
+	cout<<test.statBar(3,10,"Gray")<<endl;
+	cout<<test.statBar(5,10,"Gray")<<endl;
+	cout<<test.statBar(10,10,"Gray")<<endl;
+	cout<<endl;
+
+
+	for(int i = 0; i <= 10; i++ ){
+		cout<<test.statBar(i,10,"Green")<<100*i/10<<"%";
+		cout<<endl;
+	}
+
+	for(int i = 0; i <= 100; i++ ){
+		cout<<test.statBar(i,100,"Red")<<i<<"%";
+		cout<<endl;
+	}
+
 	return 0;
 }
