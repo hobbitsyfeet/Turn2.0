@@ -19,7 +19,7 @@ void Coord::setY(int set){
 }
 
 void Coord::display(){
-std::cout<<x<<','<<y;
+	std::cout<<x<<','<<y;
 }
 
 Coord& Coord::operator = (const Coord* operand){
@@ -32,9 +32,9 @@ bool Coord::operator !=(const Coord* operand){
 	bool checkY = this->y != operand->getY();
 
 	if(checkX && checkY)
-		return true;
+	return true;
 	else
-		return false;
+	return false;
 }
 
 bool Coord::operator ==(const Coord* operand){
@@ -42,7 +42,7 @@ bool Coord::operator ==(const Coord* operand){
 	bool checkY = this->y == operand->getY();
 
 	if(checkX && checkY)
-		return true;
+	return true;
 	else
-		return false;
+	return false;
 }

@@ -1,9 +1,9 @@
 #ifndef WORLDBLOCK_H
 #define WORLDBLOCK_H
 
-	#include "Coord.h"
-	#include <fstream>
-	#include<iostream>
+#include "Coord.h"
+#include <fstream>
+#include<iostream>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ public:
 	Coord location;
 
 	void saveWorldBlock( ofstream& );
- 	void loadWorldBlock( ifstream& );
+	void loadWorldBlock( ifstream& );
 
 	void display();
 

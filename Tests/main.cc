@@ -5,41 +5,41 @@
 #include "World.h"
 #include "Colours.h"
 int main(){
-Colours format;
-WorldBlock* block;
+	Colours format;
+	WorldBlock* block;
 
-cout<<format.red()<<"RED\n";
-cout<<format.yellow()<<"YELLOW\n";
-cout<<format.green()<<"GREEN\n";
-cout<<format.blue()<<"BLUE\n";
-cout<<format.magenta()<<"MAGENTA\n";
-cout<<format.cyan()<<"CYAN\n";
-cout<<format.white()<<"WHITE\n";
-cout<<format.gray()<<"GRAY\n";
-cout<<format.darkGray()<<"DARKGRAY\n";
-cout<<format.black()<<"BLACK\n";
+	cout<<format.red()<<"RED\n";
+	cout<<format.yellow()<<"YELLOW\n";
+	cout<<format.green()<<"GREEN\n";
+	cout<<format.blue()<<"BLUE\n";
+	cout<<format.magenta()<<"MAGENTA\n";
+	cout<<format.cyan()<<"CYAN\n";
+	cout<<format.white()<<"WHITE\n";
+	cout<<format.gray()<<"GRAY\n";
+	cout<<format.darkGray()<<"DARKGRAY\n";
+	cout<<format.black()<<"BLACK\n";
 
-cout<<format.lightRed()<<"LIGHTRED\n";
-cout<<format.lightBlue()<<"LIGHTBLUE\n";
-cout<<format.lightGreen()<<"LIGHTGREEN\n";
-cout<<format.lightCyan()<<"LIGHTCYAN\n";
+	cout<<format.lightRed()<<"LIGHTRED\n";
+	cout<<format.lightBlue()<<"LIGHTBLUE\n";
+	cout<<format.lightGreen()<<"LIGHTGREEN\n";
+	cout<<format.lightCyan()<<"LIGHTCYAN\n";
 
-cout<<format.white();
+	cout<<format.white();
 
 
-cout<<format.redbg()<<"REDBG";
-cout<<format.defaults()<<endl;
-cout<<format.greenbg()<<"GREENBG";
-cout<<format.defaults()<<endl;
-cout<<format.bluebg()<<"BLUEBG";
-cout<<format.defaults()<<endl;
-cout<<format.magentabg()<<"MAGENTABG";
-cout<<format.defaults()<<endl;
-cout<<format.cyanbg()<<"CYANBG";
-cout<<format.defaults()<<endl;
-cout<<format.black()<<format.whitebg()<<"WHITEBG";
+	cout<<format.redbg()<<"REDBG";
+	cout<<format.defaults()<<endl;
+	cout<<format.greenbg()<<"GREENBG";
+	cout<<format.defaults()<<endl;
+	cout<<format.bluebg()<<"BLUEBG";
+	cout<<format.defaults()<<endl;
+	cout<<format.magentabg()<<"MAGENTABG";
+	cout<<format.defaults()<<endl;
+	cout<<format.cyanbg()<<"CYANBG";
+	cout<<format.defaults()<<endl;
+	cout<<format.black()<<format.whitebg()<<"WHITEBG";
 
-cout<<format.defaults()<<endl;
+	cout<<format.defaults()<<endl;
 
 	block = new Grass;
 	cout<<"grass:";
@@ -90,5 +90,14 @@ cout<<format.defaults()<<endl;
 	map.size.setY(30);
 	map.generate();
 	map.display();
+
+	Coord testPlayerCoord;
+	testPlayerCoord.setX(14);
+	testPlayerCoord.setY(17);
+
+	WorldBlock testBlock = map.getWorldBlock(testPlayerCoord);
+
+	cout<<testBlock.location.getX()<<",";
+	cout<<testBlock.location.getY();
 	return 0;
 }
