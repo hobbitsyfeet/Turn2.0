@@ -2,19 +2,24 @@
 #define WORLD_H
 
 #include <vector>
-#include "./WorldBlocks/WorldBlock.h"
+#include "WorldBlocks/WorldBlock.h"
+#include "Coord.h"
 
 class World{
 public:
+	Coord size;
 
-	virtual void generate() = 0;
+	virtual void generate();
 	void display();
-	void getInfo(int,int);
+	WorldBlock& getWorldBlock(Coord) const;
 
 	void loadWorld();
 	void saveWorld();
 
 private:
-vector<vector<WorldBlock*>> chart;
+	//int sizeX, sizeY;
+	bool fogOfWar;
+	//WorldBlock* currentBlock;
+	vector<vector<WorldBlock*> > chart;
 };
 #endif //WORLD_H

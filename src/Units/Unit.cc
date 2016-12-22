@@ -1,5 +1,6 @@
 #include "Unit.h"
 #include "Colours.h"
+#include "Coord.h"
 #include <iostream>
 using namespace std;
 
@@ -43,7 +44,9 @@ void Unit::setMaxMana(int newMaxMana){
 	this->maxMana = newMaxMana;
 }
 
-void move(int x, int y){}
+void Unit::move(Coord newCoord){
+	location = newCoord;
+}
 
 string Unit::statBar(int stat, int maxStat, string colour){
 	int numBlocks = 25;
@@ -88,7 +91,7 @@ string Unit::statBar(int stat, int maxStat, string colour){
 		else{
 			bar.append(lowlight);
 		}
-		bar.append("#");
+		bar.append("_");
 		bar.append(format.defaults());
 	}
 

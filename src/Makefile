@@ -3,10 +3,10 @@ CCC = g++
 CFLAGS = -I../include/
 PROGRAM = Turn
 SRC = .
+WORLD = $(SRC)/World/World.o
 WRLDBLKS = $(SRC)/World/WorldBlocks
-WORLD_OBJS = $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o $(WRLDBLKS)/DeepWater.o $(WRLDBLKS)/OccupyBlock.o
-SRC_OBJS = $(SRC)/main.o	$(SRC)/Colours.o $(SRC)/Units/Unit.o $(SRC)/Combat.o $(WORLD_OBJS)
-
+WORLD_OBJS = $(WORLD) $(WRLDBLKS)/WorldBlock.o $(WRLDBLKS)/Grass.o $(WRLDBLKS)/ShallowWater.o $(WRLDBLKS)/DeepWater.o $(WRLDBLKS)/OccupyBlock.o
+SRC_OBJS = $(SRC)/main.o	$(SRC)/Colours.o $(SRC)/Units/Unit.o $(SRC)/Combat.o $(WORLD_OBJS) $(SRC)/Coord.o
 ## ADD YOUR TEST OBJECTS TO HERE
 
 ALL_OBJS = $(SRC_OBJS)

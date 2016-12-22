@@ -1,6 +1,7 @@
 #ifndef WORLDBLOCK_H
 #define WORLDBLOCK_H
 
+	#include "Coord.h"
 	#include <fstream>
 	#include<iostream>
 
@@ -8,6 +9,8 @@ using namespace std;
 
 class WorldBlock{
 public:
+	Coord location;
+
 	void saveWorldBlock( ofstream& );
  	void loadWorldBlock( ifstream& );
 
@@ -16,8 +19,6 @@ public:
 	bool getCollision();
 
 protected:
-	int x,y;
-
 	string format;
 	string name;
 	char type;

@@ -2,6 +2,7 @@
 #define UNIT_H
 
 //#include "Combat.h"
+#include "Coord.h"
 #include <iostream>
 
 using namespace std;
@@ -9,6 +10,7 @@ using namespace std;
 class Unit{
 
 public:
+	Coord location;
 	string getName()const;
 	void setName(string);
 
@@ -24,13 +26,14 @@ public:
 	int getMaxMana()const;
 	void setMaxMana(int);
 
-	void move(int x,int y);
+	void move(Coord);
 	string statBar(int stat,int maxStat, string colour);
 
 private:
 	string name;
 	int HP, maxHP;
 	int mana, maxMana;
+
 };
 
 #endif //UNIT_H
