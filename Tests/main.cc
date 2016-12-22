@@ -86,5 +86,9 @@ cout<<format.defaults()<<endl;
 	}
 
 	World map;
+	map.size.setX(20);
+	map.size.setY(30);
+	map.generate();
+	map.display();
 	return 0;
 }
