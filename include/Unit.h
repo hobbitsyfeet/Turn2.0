@@ -27,7 +27,6 @@ public:
 	void setMaxMana(int);
 
 	void move(Coord);
-	string statBar(int stat,int maxStat, string colour);
 
 private:
 	string name;

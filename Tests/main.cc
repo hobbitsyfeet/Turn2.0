@@ -4,6 +4,7 @@
 #include "WorldBlocks/DeepWater.h"
 #include "World.h"
 #include "Colours.h"
+#include "UI.h"
 int main(){
 	Colours format;
 	WorldBlock* block;
@@ -58,32 +59,36 @@ int main(){
 	block->display();
 	//delete block;
 
-	Unit test;
+	UI test;
 	cout<<endl;
-	cout<<test.statBar(3,10,"Green")<<endl;
-	cout<<test.statBar(5,10,"Green")<<endl;
-	cout<<test.statBar(10,10,"Green")<<endl;
-	cout<<test.statBar(3,10,"Blue")<<endl;
-	cout<<test.statBar(5,10,"Blue")<<endl;
-	cout<<test.statBar(10,10,"Blue")<<endl;
-	cout<<test.statBar(3,10,"Red")<<endl;
-	cout<<test.statBar(5,10,"Red")<<endl;
-	cout<<test.statBar(10,10,"Red")<<endl;
-	cout<<test.statBar(3,10,"Gray")<<endl;
-	cout<<test.statBar(5,10,"Gray")<<endl;
-	cout<<test.statBar(10,10,"Gray")<<endl;
+	cout<<test.statBar(3,10,0)<<endl;
+	cout<<test.statBar(5,10,0)<<endl;
+	cout<<test.statBar(10,10,0)<<endl;
+	cout<<test.statBar(3,10,1)<<endl;
+	cout<<test.statBar(5,10,1)<<endl;
+	cout<<test.statBar(10,10,1)<<endl;
+	cout<<test.statBar(3,10,2)<<endl;
+	cout<<test.statBar(5,10,2)<<endl;
+	cout<<test.statBar(10,10,2)<<endl;
+	cout<<test.statBar(3,10,3)<<endl;
+	cout<<test.statBar(5,10,3)<<endl;
+	cout<<test.statBar(10,10,3)<<endl;
 	cout<<endl;
 
 
 	for(int i = 0; i <= 10; i++ ){
-		cout<<test.statBar(i,10,"Green")<<100*i/10<<"%";
+		cout<<test.statBar(i,10,0)<<100*i/10<<"%";
 		cout<<endl;
 	}
 
 	for(int i = 0; i <= 100; i++ ){
-		cout<<test.statBar(i,100,"Red")<<i<<"%";
+		cout<<test.statBar(i,100,2)<<i<<"%";
 		cout<<endl;
 	}
+
+	cout<<test.statBar(5,10,3,"small")<<endl;
+	cout<<test.statBar(5,10,3,"medium")<<endl;
+	cout<<test.statBar(5,10,3, "large")<<endl;
 
 	World map;
 	map.size.setX(20);
@@ -96,6 +101,16 @@ int main(){
 	testPlayerCoord.setY(17);
 
 	WorldBlock testBlock = map.getWorldBlock(testPlayerCoord);
+
+	cout<<testBlock.location.getX()<<",";
+	cout<<testBlock.location.getY();
+
+	cout<<endl;
+
+	testPlayerCoord.setX(10);
+	testPlayerCoord.setY(20);
+
+	testBlock = map.getWorldBlock(testPlayerCoord);
 
 	cout<<testBlock.location.getX()<<",";
 	cout<<testBlock.location.getY();
