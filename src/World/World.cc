@@ -35,24 +35,18 @@ void World::generate(){
 void World::display(){
 	vector<vector<WorldBlock*> >::iterator row;
 	vector<WorldBlock*>::iterator col;
-	WorldBlock* temp;
 
 	for(row = chart.end(); row > chart.begin() ; row--){
     for(col = row->begin(); col< row->end(); col++){
-			temp = *col;
-			temp->display();
+		(*col)->display();
 			cout<<' ';
 		}
 		cout<<endl;
 	}
 }
 
-WorldBlock World::getWorldBlock(Coord blockLocation){
-
+WorldBlock& World::getWorldBlock(Coord blockLocation){
 	vector<vector <WorldBlock*> >::iterator row = chart.begin() + blockLocation.getY();
   vector<WorldBlock*> ::iterator col = row->begin() + blockLocation.getX()-1;
-
-	WorldBlock* block = *col;
-
-	return *block;
+	return *(*col);
 }
