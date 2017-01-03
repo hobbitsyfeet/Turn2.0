@@ -2,6 +2,7 @@
 #define WORLDBLOCK_H
 
 #include "Coord.h"
+#include "Unit.h"
 #include <fstream>
 #include<iostream>
 
@@ -18,7 +19,11 @@ public:
 
 	bool getCollision();
 
+	Unit* getUnit();
+	void setUnit(Unit&);
+
 protected:
+	Unit* OccupiedUnit;
 	string format;
 	string name;
 	char type;

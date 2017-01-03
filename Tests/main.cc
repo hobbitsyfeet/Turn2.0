@@ -5,6 +5,7 @@
 #include "World.h"
 #include "Colours.h"
 #include "UI.h"
+#include "Unit.h"
 int main(){
 	Colours format;
 	WorldBlock* block;
@@ -90,6 +91,7 @@ int main(){
 	cout<<test.statBar(5,10,3,"medium")<<endl;
 	cout<<test.statBar(5,10,3, "large")<<endl;
 
+	Unit testUnit;
 	World map;
 	map.size.setX(20);
 	map.size.setY(30);
@@ -100,19 +102,18 @@ int main(){
 	testPlayerCoord.setX(14);
 	testPlayerCoord.setY(17);
 
-	WorldBlock testBlock = map.getWorldBlock(testPlayerCoord);
+	WorldBlock* testBlock = map.getWorldBlock(testPlayerCoord);
 
-	cout<<testBlock.location.getX()<<",";
-	cout<<testBlock.location.getY();
+	cout<<testBlock->location.getX()<<",";
+	cout<<testBlock->location.getY();
 
 	cout<<endl;
 
-	testPlayerCoord.setX(10);
-	testPlayerCoord.setY(20);
+	map.getWorldBlock(testPlayerCoord)->setUnit(testUnit);
 
-	testBlock = map.getWorldBlock(testPlayerCoord);
+	map.display();
 
-	cout<<testBlock.location.getX()<<",";
-	cout<<testBlock.location.getY();
+	//map.getWorldBlock(testPlayerCoord)->getUnit()->display();
+
 	return 0;
 }

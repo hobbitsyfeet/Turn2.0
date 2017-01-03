@@ -11,7 +11,7 @@ public:
 
 	virtual void generate();
 	void display();
-	WorldBlock& getWorldBlock(Coord);
+	WorldBlock* getWorldBlock(Coord);
 
 	void loadWorld();
 	void saveWorld();

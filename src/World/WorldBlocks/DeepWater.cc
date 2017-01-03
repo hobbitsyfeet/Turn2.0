@@ -5,6 +5,7 @@ using namespace std;
 
 DeepWater::DeepWater(){
 	Colours effect;
+	OccupiedUnit = NULL;
 	name = "DeepWater";
 	format = effect.blue();
 	type = '~';

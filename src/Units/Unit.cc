@@ -48,5 +48,7 @@ void Unit::move(Coord newCoord){
 	location = newCoord;
 }
 
-
+void Unit::display(){
+	cout<<"P";
+}
 

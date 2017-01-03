@@ -1,9 +1,9 @@
 #ifndef SHALLOWWATER_H
 #define	SHALLOWWATER_H
 
-#include "OccupyBlock.h"
+#include "WorldBlock.h"
 
-class ShallowWater : public OccupyBlock{
+class ShallowWater : public WorldBlock{
 public:
 	ShallowWater();
 private:

@@ -28,6 +28,8 @@ public:
 
 	void move(Coord);
 
+	void display();
+
 private:
 	string name;
 	int HP, maxHP;

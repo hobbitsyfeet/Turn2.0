@@ -5,7 +5,8 @@ using namespace std;
 
 Grass::Grass(){
 	Colours effect;
-	name= "Grass";
+	OccupiedUnit = NULL;
+	name = "Grass";
 	format = effect.green();
 	type = ',';
 	collision = false;

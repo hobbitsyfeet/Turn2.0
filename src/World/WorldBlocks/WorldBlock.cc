@@ -1,4 +1,5 @@
 #include "WorldBlocks/WorldBlock.h"
+#include "Unit.h"
 
 #include <fstream>
 #include <iostream>
@@ -13,12 +14,27 @@ void WorldBlock::loadWorldBlock( ifstream& fin ){
 }
 
 void WorldBlock::display(){
-	cout<<format<<type;
+
+	if(OccupiedUnit == NULL){
+		cout<<format<<type;
+	}
+	else if(OccupiedUnit != NULL){
+		OccupiedUnit->display();
+	}
+	//A CASE WE DO NOT WANT
+	else{
+		cout<<"X";
+	}
 }
 
 bool WorldBlock::getCollision(){
 	return collision;
 }
 
+void WorldBlock::setUnit(Unit& currentUnit){
+	OccupiedUnit = &currentUnit;
+}
 
-
+Unit* WorldBlock::getUnit(){
+	return OccupiedUnit;
+}

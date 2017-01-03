@@ -1,9 +1,9 @@
 #ifndef DIRT_H
 #define	DIRT_H
 
-#include "OccupyBlock.h"
+#include "WorldBlock.h"
 
-class Grass : public OccupyBlock{
+class Grass : public WorldBlock{
 public:
 	Grass();
 private:
