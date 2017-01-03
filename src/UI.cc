@@ -6,19 +6,21 @@
 *	respective colours : RED,GREEN,BLUE,WHITE
 */
 string UI::statBar(int stat, int maxStat, int colour, string length){
+
 	int size;
 	if (length == "small"){
-		size = 10;
+		size = 15;
 	}
 	else if(length == "medium"){
 		size = 25;
 	}
 	else if(length == "large"){
-		size = 45;
+		size = 35;
 	}
 	else{
 		size = 25;
 	}
+
 	double percent = (size * stat / maxStat);
 	int numHighlights = percent;
 	bool endBar = false;

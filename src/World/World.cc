@@ -45,8 +45,8 @@ void World::display(){
 	}
 }
 
-WorldBlock& World::getWorldBlock(Coord blockLocation){
+WorldBlock* World::getWorldBlock(Coord blockLocation){
 	vector<vector <WorldBlock*> >::iterator row = chart.begin() + blockLocation.getY();
   vector<WorldBlock*> ::iterator col = row->begin() + blockLocation.getX()-1;
-	return *(*col);
+	return *col;
 }

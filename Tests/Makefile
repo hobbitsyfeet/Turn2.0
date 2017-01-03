@@ -23,7 +23,7 @@ $(PROGRAM_TEST): $(ALL_OBJS)
 
 
 clean:
-	rm -rf *~ $(SRC_OBJS) $(TEST_OBJS) $(SRC_OBS)
+	rm -rf *~ $(ALL_OBJS)
 
 clean-all: clean
 	rm -f $(PROGRAM_TEST) *.exe
