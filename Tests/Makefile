@@ -7,7 +7,7 @@ WORLD = $(SRC)/World/World.o
 WBLKS = $(SRC)/World/WorldBlocks
 UNITS = $(SRC)/Units/Unit.o
 SRC_WBLKS_OBJS = $(WBLKS)/WorldBlock.o $(WBLKS)/Grass.o $(WBLKS)/ShallowWater.o $(WBLKS)/DeepWater.o
-SRC_OBJS = $(SRC)/Coord.o 	$(SRC)/Colours.o $(SRC)/UI.o
+SRC_OBJS = $(SRC)/Coord.o 	$(SRC)/Colours.o $(SRC)/UI.o $(SRC)/Inventory.o $(SRC)/Item.o
 ## ADD YOUR TEST OBJECTS TO HERE
 TEST_OBJS = main.o
 

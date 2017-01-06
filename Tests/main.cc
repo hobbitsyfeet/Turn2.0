@@ -6,10 +6,26 @@
 #include "Colours.h"
 #include "UI.h"
 #include "Unit.h"
-int main(){
-	Colours format;
-	WorldBlock* block;
+#include "Item.h"
 
+void TestColours();
+void TestUI();
+void TestBlock();
+void TestInventory();
+void TestMap();
+int main(){
+
+	//TestColours();
+	//TestUI();
+	TestBlock();
+	TestInventory();
+	//TestMap();
+	return 0;
+}
+
+
+void TestColours(){
+	Colours format;
 	cout<<format.red()<<"RED\n";
 	cout<<format.yellow()<<"YELLOW\n";
 	cout<<format.green()<<"GREEN\n";
@@ -42,24 +58,9 @@ int main(){
 	cout<<format.black()<<format.whitebg()<<"WHITEBG";
 
 	cout<<format.defaults()<<endl;
+}
 
-	block = new Grass;
-	cout<<"grass:";
-	block->display();
-	cout<<endl;
-	//delete block;
-
-	block = new ShallowWater;
-	cout<<format.white()<<"ShallowWater:";
-	block->display();
-	cout<<endl;
-	//delete block;
-
-	block = new DeepWater;
-	cout<<format.white()<<"DeepWater:";
-	block->display();
-	//delete block;
-
+void TestUI(){
 	UI test;
 	cout<<endl;
 	cout<<test.statBar(3,10,0)<<endl;
@@ -90,30 +91,96 @@ int main(){
 	cout<<test.statBar(5,10,3,"small")<<endl;
 	cout<<test.statBar(5,10,3,"medium")<<endl;
 	cout<<test.statBar(5,10,3, "large")<<endl;
+}
 
+void TestBlock(){
+	WorldBlock* block;
+	block = new Grass;
+	cout<<"grass:";
+	block->display();
+	cout<<endl;
+	delete block;
+
+	block = new ShallowWater;
+	cout<<"ShallowWater:";
+	block->display();
+	cout<<endl;
+	delete block;
+
+	block = new DeepWater;
+	cout<<"DeepWater:";
+	block->display();
+	delete block;
+}
+
+void TestMap(){
 	Unit testUnit;
 	World map;
-	map.size.setX(20);
-	map.size.setY(30);
+	Coord index1(2,5);
+
+	map.size.setX(5);
+	map.size.setY(10);
 	map.generate();
 	map.display();
 
-	Coord testPlayerCoord;
-	testPlayerCoord.setX(14);
-	testPlayerCoord.setY(17);
+	WorldBlock* testBlock = map.getWorldBlock(index1);
+	map.getWorldBlock(index1)->setUnit(testUnit);
+	map.display();
+}
 
-	WorldBlock* testBlock = map.getWorldBlock(testPlayerCoord);
 
-	cout<<testBlock->location.getX()<<",";
-	cout<<testBlock->location.getY();
+void TestInventory(){
+	Unit testUnit;
+	Item* selectItem;
+	
+	Item item1;
+	Item item2("Apple", 2);
+	Item item3("Dog",5);
+	Item item4("Rabbit",5);
+	Item item5("Toy",5);
 
+	selectItem = &item2;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
 	cout<<endl;
 
-	map.getWorldBlock(testPlayerCoord)->setUnit(testUnit);
+	selectItem = &item1;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
 
-	map.display();
+	selectItem = &item3;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
 
-	//map.getWorldBlock(testPlayerCoord)->getUnit()->display();
+	selectItem = &item2;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
 
-	return 0;
+	selectItem = &item4;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
+
+	selectItem = &item5;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
+
+	selectItem = &item2;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
+
+	selectItem = &item2;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
+
+	selectItem = &item2;
+	testUnit.inventory.addItem(selectItem);
+	testUnit.inventory.display();
+	cout<<endl;
 }

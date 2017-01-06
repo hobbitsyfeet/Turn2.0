@@ -3,6 +3,7 @@
 
 //#include "Combat.h"
 #include "Coord.h"
+#include "Inventory.h"
 #include <iostream>
 
 using namespace std;
@@ -11,6 +12,7 @@ class Unit{
 
 public:
 	Coord location;
+	Inventory inventory;
 	string getName()const;
 	void setName(string);
 
@@ -26,15 +28,12 @@ public:
 	int getMaxMana()const;
 	void setMaxMana(int);
 
-	void move(Coord);
-
 	void display();
 
 private:
 	string name;
 	int HP, maxHP;
 	int mana, maxMana;
-
 };
 
 #endif //UNIT_H

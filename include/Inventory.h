@@ -1,20 +1,19 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
-#include "./Item.h"
+#include "Item.h"
+#include <vector>
 
 class Inventory{
 public:
 	void display();
-	void sort(string method);
 
-	void getMaxStorage();
-	int setMaxStorage()const;
+	int getMaxStorage() const;
+	void setMaxStorage(int);
 
-	void pickupItem(const Item*, Inventory*);
-	void dropItem(const Item*);
-	void placeItem(const Item*, Inventory*);
+	void addItem(Item*);
+	//Item removeItem(Item*);
 private:
 	int maxStorage;
 	vector<Item*> storage;
 };
-#endif INVENTORY_H
+#endif //INVENTORY_H
