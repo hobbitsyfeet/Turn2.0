@@ -44,10 +44,6 @@ void Unit::setMaxMana(int newMaxMana){
 	this->maxMana = newMaxMana;
 }
 
-void Unit::move(Coord newCoord){
-	location = newCoord;
-}
-
 void Unit::display(){
 	cout<<"P";
 }

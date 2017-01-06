@@ -6,8 +6,8 @@
 #include <vector>
 
 void World::generate(){
-  chart.resize( size.getY(), vector<WorldBlock*>(size.getX()) );
-	int x = 0, y = size.getY();
+	chart.resize( size.getY()+1, vector<WorldBlock*>(size.getX()) );
+	int x = 0, y = size.getY()+1;
 
 	vector<vector<WorldBlock*> >::iterator row;
 	vector<WorldBlock*>::iterator col;
@@ -15,18 +15,20 @@ void World::generate(){
 	WorldBlock* currentBlock;
 
 
-  for(row = chart.end(); row > chart.begin() ; row--){
-    for(col = row->begin(); col< row->end(); col++){
+	for(row = chart.end(); row > chart.begin() ; row--){
+		for(col = row->begin(); col< row->end(); col++){
 			x++;
 
 			*col = new Grass;
 			currentBlock = *col;
 
+			//cout<<x<<','<<y<<'|';
 			currentBlock->location.setX(x);
 			currentBlock->location.setY(y);
 		}//end Collumn
 		y--;
 		x=0;
+		cout<<endl;
 	}//end Row
 }
 
@@ -37,8 +39,8 @@ void World::display(){
 	vector<WorldBlock*>::iterator col;
 
 	for(row = chart.end(); row > chart.begin() ; row--){
-    for(col = row->begin(); col< row->end(); col++){
-		(*col)->display();
+		for(col = row->begin(); col< row->end(); col++){
+			(*col)->display();
 			cout<<' ';
 		}
 		cout<<endl;
@@ -47,6 +49,6 @@ void World::display(){
 
 WorldBlock* World::getWorldBlock(Coord blockLocation){
 	vector<vector <WorldBlock*> >::iterator row = chart.begin() + blockLocation.getY();
-  vector<WorldBlock*> ::iterator col = row->begin() + blockLocation.getX()-1;
+	vector<WorldBlock*> ::iterator col = row->begin() + blockLocation.getX()-1;
 	return *col;
 }

@@ -16,7 +16,7 @@ void WorldBlock::loadWorldBlock( ifstream& fin ){
 void WorldBlock::display(){
 
 	if(OccupiedUnit == NULL){
-		cout<<format<<type;
+		cout<<format<<type<<"\033[0m";
 	}
 	else if(OccupiedUnit != NULL){
 		OccupiedUnit->display();

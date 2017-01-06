@@ -2,7 +2,7 @@
 #define WORLDBLOCK_H
 
 #include "Coord.h"
-#include "Unit.h"
+#include "../Unit.h"
 #include <fstream>
 #include<iostream>
 
@@ -21,6 +21,7 @@ public:
 
 	Unit* getUnit();
 	void setUnit(Unit&);
+	//void setUnitNull();
 
 protected:
 	Unit* OccupiedUnit;

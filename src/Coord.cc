@@ -1,13 +1,17 @@
 #include "Coord.h"
 #include <iostream>
 
+Coord::Coord(int x, int y){
+	this->x = x;
+	this->y = y;
+}
 
 int Coord::getX() const{
-	return this->y;
+	return this->x;
 }
 
 int Coord::getY() const{
-	return this->x;
+	return this->y;
 }
 
 void Coord::setX(int set){
@@ -16,6 +20,11 @@ void Coord::setX(int set){
 
 void Coord::setY(int set){
 	this->y = set;
+}
+
+void Coord::set(int X,int Y){
+	this->x = X;
+	this->y = Y;
 }
 
 void Coord::display(){
