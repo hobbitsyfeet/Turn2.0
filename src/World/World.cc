@@ -1,8 +1,8 @@
 #include "World.h"
 #include "Unit.h"
 #include "Coord.h"
-#include "WorldBlock.h"
-#include "Grass.h"
+#include "WorldBlocks/WorldBlock.h"
+#include "WorldBlocks/Grass.h"
 #include <vector>
 
 void World::generate(){
