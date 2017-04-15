@@ -1,3 +1,5 @@
 *.exe
 *.o
 build/*
+CMakeFiles/*
+build/Makefile
