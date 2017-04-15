@@ -1,4 +1,4 @@
-#include "WorldBlocks/ShallowWater.h"
+#include "ShallowWater.h"
 #include "Colours.h"
 #include<iostream>
 using namespace std;

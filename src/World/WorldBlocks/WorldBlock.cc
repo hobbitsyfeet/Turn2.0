@@ -1,4 +1,4 @@
-#include "WorldBlocks/WorldBlock.h"
+#include "WorldBlock.h"
 #include "Unit.h"
 
 #include <fstream>
