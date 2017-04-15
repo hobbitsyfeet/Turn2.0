@@ -4,17 +4,15 @@ project (Turn2.0)
 include_directories(include)
 
 #FLAGS
-set (CMAKE_SHARED_LINKER_FLAGS "-lcppunit,--as-needed")
 
 #Can manually add the sources using the set command as follows:
 set(SOURCES src/*.cc src/World/*.cc src/World/WorldBlocks/*.cc)
 set(MAIN ./main.cc)
 set(TEST ./tests/tests.cc)
 
+
 #However, the file(GLOB...) allows for wildcard additions:
 file(GLOB SOURCES src/*.cc src/World/*.cc src/World/WorldBlocks/*.cc src/Units/*.cc)
 
-#LIBRARY FOR SOURCES
-
-#add_executable(Test ${TEST} ${SOURCES})
-add_library(Turn ${MAIN} ${SOURCES})
+add_executable(Turn ${MAIN} ${SOURCES})
+add_executable(Test ${TEST} ${SOURCES})

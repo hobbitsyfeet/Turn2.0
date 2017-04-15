@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.7.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/justinpetluk/Desktop/Turn2.0
+CMAKE_SOURCE_DIR = /Users/justinpetluk/GitHub/Turn2.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/justinpetluk/Desktop/Turn2.0/build
+CMAKE_BINARY_DIR = /Users/justinpetluk/GitHub/Turn2.0/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/justinpetluk/Desktop/Turn2.0/build/CMakeFiles /Users/justinpetluk/Desktop/Turn2.0/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/justinpetluk/GitHub/Turn2.0/build/CMakeFiles /Users/justinpetluk/GitHub/Turn2.0/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/justinpetluk/Desktop/Turn2.0/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/justinpetluk/GitHub/Turn2.0/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
+
+# fast build rule for target.
+Test/fast:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
 
 #=============================================================================
 # Target rules for targets named Turn
@@ -156,6 +169,7 @@ src/Colours.o: src/Colours.cc.o
 
 # target to build an object file
 src/Colours.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Colours.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Colours.cc.o
 .PHONY : src/Colours.cc.o
 
@@ -165,6 +179,7 @@ src/Colours.i: src/Colours.cc.i
 
 # target to preprocess a source file
 src/Colours.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Colours.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Colours.cc.i
 .PHONY : src/Colours.cc.i
 
@@ -174,6 +189,7 @@ src/Colours.s: src/Colours.cc.s
 
 # target to generate assembly for a file
 src/Colours.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Colours.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Colours.cc.s
 .PHONY : src/Colours.cc.s
 
@@ -183,6 +199,7 @@ src/Combat.o: src/Combat.cc.o
 
 # target to build an object file
 src/Combat.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Combat.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Combat.cc.o
 .PHONY : src/Combat.cc.o
 
@@ -192,6 +209,7 @@ src/Combat.i: src/Combat.cc.i
 
 # target to preprocess a source file
 src/Combat.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Combat.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Combat.cc.i
 .PHONY : src/Combat.cc.i
 
@@ -201,6 +219,7 @@ src/Combat.s: src/Combat.cc.s
 
 # target to generate assembly for a file
 src/Combat.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Combat.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Combat.cc.s
 .PHONY : src/Combat.cc.s
 
@@ -210,6 +229,7 @@ src/Coord.o: src/Coord.cc.o
 
 # target to build an object file
 src/Coord.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Coord.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Coord.cc.o
 .PHONY : src/Coord.cc.o
 
@@ -219,6 +239,7 @@ src/Coord.i: src/Coord.cc.i
 
 # target to preprocess a source file
 src/Coord.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Coord.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Coord.cc.i
 .PHONY : src/Coord.cc.i
 
@@ -228,6 +249,7 @@ src/Coord.s: src/Coord.cc.s
 
 # target to generate assembly for a file
 src/Coord.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Coord.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Coord.cc.s
 .PHONY : src/Coord.cc.s
 
@@ -237,6 +259,7 @@ src/Inventory.o: src/Inventory.cc.o
 
 # target to build an object file
 src/Inventory.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Inventory.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Inventory.cc.o
 .PHONY : src/Inventory.cc.o
 
@@ -246,6 +269,7 @@ src/Inventory.i: src/Inventory.cc.i
 
 # target to preprocess a source file
 src/Inventory.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Inventory.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Inventory.cc.i
 .PHONY : src/Inventory.cc.i
 
@@ -255,6 +279,7 @@ src/Inventory.s: src/Inventory.cc.s
 
 # target to generate assembly for a file
 src/Inventory.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Inventory.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Inventory.cc.s
 .PHONY : src/Inventory.cc.s
 
@@ -264,6 +289,7 @@ src/Item.o: src/Item.cc.o
 
 # target to build an object file
 src/Item.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Item.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Item.cc.o
 .PHONY : src/Item.cc.o
 
@@ -273,6 +299,7 @@ src/Item.i: src/Item.cc.i
 
 # target to preprocess a source file
 src/Item.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Item.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Item.cc.i
 .PHONY : src/Item.cc.i
 
@@ -282,6 +309,7 @@ src/Item.s: src/Item.cc.s
 
 # target to generate assembly for a file
 src/Item.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Item.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Item.cc.s
 .PHONY : src/Item.cc.s
 
@@ -291,6 +319,7 @@ src/UI.o: src/UI.cc.o
 
 # target to build an object file
 src/UI.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/UI.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/UI.cc.o
 .PHONY : src/UI.cc.o
 
@@ -300,6 +329,7 @@ src/UI.i: src/UI.cc.i
 
 # target to preprocess a source file
 src/UI.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/UI.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/UI.cc.i
 .PHONY : src/UI.cc.i
 
@@ -309,6 +339,7 @@ src/UI.s: src/UI.cc.s
 
 # target to generate assembly for a file
 src/UI.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/UI.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/UI.cc.s
 .PHONY : src/UI.cc.s
 
@@ -318,6 +349,7 @@ src/Units/Unit.o: src/Units/Unit.cc.o
 
 # target to build an object file
 src/Units/Unit.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Units/Unit.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Units/Unit.cc.o
 .PHONY : src/Units/Unit.cc.o
 
@@ -327,6 +359,7 @@ src/Units/Unit.i: src/Units/Unit.cc.i
 
 # target to preprocess a source file
 src/Units/Unit.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Units/Unit.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Units/Unit.cc.i
 .PHONY : src/Units/Unit.cc.i
 
@@ -336,6 +369,7 @@ src/Units/Unit.s: src/Units/Unit.cc.s
 
 # target to generate assembly for a file
 src/Units/Unit.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/Units/Unit.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/Units/Unit.cc.s
 .PHONY : src/Units/Unit.cc.s
 
@@ -345,6 +379,7 @@ src/World/World.o: src/World/World.cc.o
 
 # target to build an object file
 src/World/World.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/World.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/World.cc.o
 .PHONY : src/World/World.cc.o
 
@@ -354,6 +389,7 @@ src/World/World.i: src/World/World.cc.i
 
 # target to preprocess a source file
 src/World/World.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/World.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/World.cc.i
 .PHONY : src/World/World.cc.i
 
@@ -363,6 +399,7 @@ src/World/World.s: src/World/World.cc.s
 
 # target to generate assembly for a file
 src/World/World.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/World.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/World.cc.s
 .PHONY : src/World/World.cc.s
 
@@ -372,6 +409,7 @@ src/World/WorldBlocks/DeepWater.o: src/World/WorldBlocks/DeepWater.cc.o
 
 # target to build an object file
 src/World/WorldBlocks/DeepWater.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/DeepWater.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/DeepWater.cc.o
 .PHONY : src/World/WorldBlocks/DeepWater.cc.o
 
@@ -381,6 +419,7 @@ src/World/WorldBlocks/DeepWater.i: src/World/WorldBlocks/DeepWater.cc.i
 
 # target to preprocess a source file
 src/World/WorldBlocks/DeepWater.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/DeepWater.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/DeepWater.cc.i
 .PHONY : src/World/WorldBlocks/DeepWater.cc.i
 
@@ -390,6 +429,7 @@ src/World/WorldBlocks/DeepWater.s: src/World/WorldBlocks/DeepWater.cc.s
 
 # target to generate assembly for a file
 src/World/WorldBlocks/DeepWater.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/DeepWater.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/DeepWater.cc.s
 .PHONY : src/World/WorldBlocks/DeepWater.cc.s
 
@@ -399,6 +439,7 @@ src/World/WorldBlocks/Grass.o: src/World/WorldBlocks/Grass.cc.o
 
 # target to build an object file
 src/World/WorldBlocks/Grass.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/Grass.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/Grass.cc.o
 .PHONY : src/World/WorldBlocks/Grass.cc.o
 
@@ -408,6 +449,7 @@ src/World/WorldBlocks/Grass.i: src/World/WorldBlocks/Grass.cc.i
 
 # target to preprocess a source file
 src/World/WorldBlocks/Grass.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/Grass.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/Grass.cc.i
 .PHONY : src/World/WorldBlocks/Grass.cc.i
 
@@ -417,6 +459,7 @@ src/World/WorldBlocks/Grass.s: src/World/WorldBlocks/Grass.cc.s
 
 # target to generate assembly for a file
 src/World/WorldBlocks/Grass.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/Grass.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/Grass.cc.s
 .PHONY : src/World/WorldBlocks/Grass.cc.s
 
@@ -426,6 +469,7 @@ src/World/WorldBlocks/ShallowWater.o: src/World/WorldBlocks/ShallowWater.cc.o
 
 # target to build an object file
 src/World/WorldBlocks/ShallowWater.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/ShallowWater.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/ShallowWater.cc.o
 .PHONY : src/World/WorldBlocks/ShallowWater.cc.o
 
@@ -435,6 +479,7 @@ src/World/WorldBlocks/ShallowWater.i: src/World/WorldBlocks/ShallowWater.cc.i
 
 # target to preprocess a source file
 src/World/WorldBlocks/ShallowWater.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/ShallowWater.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/ShallowWater.cc.i
 .PHONY : src/World/WorldBlocks/ShallowWater.cc.i
 
@@ -444,6 +489,7 @@ src/World/WorldBlocks/ShallowWater.s: src/World/WorldBlocks/ShallowWater.cc.s
 
 # target to generate assembly for a file
 src/World/WorldBlocks/ShallowWater.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/ShallowWater.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/ShallowWater.cc.s
 .PHONY : src/World/WorldBlocks/ShallowWater.cc.s
 
@@ -453,6 +499,7 @@ src/World/WorldBlocks/WorldBlock.o: src/World/WorldBlocks/WorldBlock.cc.o
 
 # target to build an object file
 src/World/WorldBlocks/WorldBlock.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/WorldBlock.cc.o
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/WorldBlock.cc.o
 .PHONY : src/World/WorldBlocks/WorldBlock.cc.o
 
@@ -462,6 +509,7 @@ src/World/WorldBlocks/WorldBlock.i: src/World/WorldBlocks/WorldBlock.cc.i
 
 # target to preprocess a source file
 src/World/WorldBlocks/WorldBlock.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/WorldBlock.cc.i
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/WorldBlock.cc.i
 .PHONY : src/World/WorldBlocks/WorldBlock.cc.i
 
@@ -471,8 +519,36 @@ src/World/WorldBlocks/WorldBlock.s: src/World/WorldBlocks/WorldBlock.cc.s
 
 # target to generate assembly for a file
 src/World/WorldBlocks/WorldBlock.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/World/WorldBlocks/WorldBlock.cc.s
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlocks/WorldBlock.cc.s
 .PHONY : src/World/WorldBlocks/WorldBlock.cc.s
+
+tests/tests.o: tests/tests.cc.o
+
+.PHONY : tests/tests.o
+
+# target to build an object file
+tests/tests.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/tests/tests.cc.o
+.PHONY : tests/tests.cc.o
+
+tests/tests.i: tests/tests.cc.i
+
+.PHONY : tests/tests.i
+
+# target to preprocess a source file
+tests/tests.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/tests/tests.cc.i
+.PHONY : tests/tests.cc.i
+
+tests/tests.s: tests/tests.cc.s
+
+.PHONY : tests/tests.s
+
+# target to generate assembly for a file
+tests/tests.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/tests/tests.cc.s
+.PHONY : tests/tests.cc.s
 
 # Help Target
 help:
@@ -482,6 +558,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Test"
 	@echo "... Turn"
 	@echo "... main.o"
 	@echo "... main.i"
@@ -522,6 +599,9 @@ help:
 	@echo "... src/World/WorldBlocks/WorldBlock.o"
 	@echo "... src/World/WorldBlocks/WorldBlock.i"
 	@echo "... src/World/WorldBlocks/WorldBlock.s"
+	@echo "... tests/tests.o"
+	@echo "... tests/tests.i"
+	@echo "... tests/tests.s"
 .PHONY : help
 
 

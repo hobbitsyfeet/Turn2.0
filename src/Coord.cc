@@ -34,6 +34,7 @@ void Coord::display(){
 Coord& Coord::operator = (const Coord* operand){
 	this->x = operand->getX();
 	this->y = operand->getY();
+	return *this;
 }
 
 bool Coord::operator !=(const Coord* operand){
