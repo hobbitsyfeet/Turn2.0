@@ -2,7 +2,7 @@
 #define WORLD_H
 
 #include <vector>
-#include "WorldBlocks/WorldBlock.h"
+#include "WorldBlock.h"
 #include "Coord.h"
 
 class World{

@@ -1,7 +1,7 @@
-#include "WorldBlocks/Grass.h"
-#include "WorldBlocks/WorldBlock.h"
-#include "WorldBlocks/ShallowWater.h"
-#include "WorldBlocks/DeepWater.h"
+#include "WorldBlock.h"
+#include "Grass.h"
+#include "ShallowWater.h"
+#include "DeepWater.h"
 #include "World.h"
 #include "Colours.h"
 #include "UI.h"
@@ -15,11 +15,11 @@ void TestInventory();
 void TestMap();
 int main(){
 
-	//TestColours();
-	//TestUI();
+	TestColours();
+	TestUI();
 	TestBlock();
 	TestInventory();
-	//TestMap();
+	TestMap();
 	return 0;
 }
 
@@ -97,7 +97,7 @@ void TestBlock(){
 	WorldBlock* block;
 	block = new Grass;
 	cout<<"grass:";
-	block->display();
+	//block->display();
 	cout<<endl;
 	delete block;
 
@@ -132,7 +132,7 @@ void TestMap(){
 void TestInventory(){
 	Unit testUnit;
 	Item* selectItem;
-	
+
 	Item item1;
 	Item item2("Apple", 2);
 	Item item3("Dog",5);
