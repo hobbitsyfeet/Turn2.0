@@ -6,7 +6,7 @@ A learning experience and experimental game under development by Justin Petluk,
 
 Dependencies:
 CMake: https://cmake.org/download/
-GTest (Will automaticaly install with CMake)
+GTest: (Will automaticaly install with CMake)
 
 Compile instructions:
 1. Go into Turn2.0/build
