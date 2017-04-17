@@ -1,12 +1,10 @@
 #include "WorldBlock.h"
-#include "Grass.h"
-#include "ShallowWater.h"
-#include "DeepWater.h"
 #include "World.h"
 #include "Colours.h"
 #include "UI.h"
 #include "Unit.h"
 #include "Item.h"
+
 
 void TestColours();
 void TestUI();
@@ -18,7 +16,7 @@ int main(){
 	//TestColours();
 	//TestUI();
 	TestBlock();
-	TestInventory();
+	//TestInventory();
 	//TestMap();
 	return 0;
 }
@@ -95,21 +93,34 @@ void TestUI(){
 
 void TestBlock(){
 	WorldBlock* block;
+	block = new TallGrass;
+	cout<<block->getName();
+	block->display();
+	cout<<endl;
+	delete block;
+
 	block = new Grass;
-	cout<<"grass:";
-	//block->display();
+	cout<<block->getName();
+	block->display();
 	cout<<endl;
 	delete block;
 
 	block = new ShallowWater;
-	cout<<"ShallowWater:";
+	cout<<block->getName();
 	block->display();
 	cout<<endl;
 	delete block;
 
 	block = new DeepWater;
-	cout<<"DeepWater:";
+	cout<<block->getName();
 	block->display();
+	cout<<endl;
+	delete block;
+
+	block = new Lava;
+	cout<<block->getName();
+	block->display();
+	cout<<endl;
 	delete block;
 }
 
@@ -179,8 +190,15 @@ void TestInventory(){
 	testUnit.inventory.display();
 	cout<<endl;
 
+
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
 	testUnit.inventory.display();
 	cout<<endl;
+
+	selectItem->setWorth(2);
+	cout<<selectItem->getWorth();
+
+	selectItem->setName("Apple");
+	cout<<selectItem->getName();
 }

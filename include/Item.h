@@ -7,11 +7,11 @@ using namespace std;
 class Item{
 public:
 	Item(string = "Stick", double = 1);
-	string getName();
-	double getWorth();
+	string getName() const;
+	double getWorth() const;
 
 	void setName(string newName);
-
+	void setWorth(double newWorth);
 	//virtual void use() = 0;
 
 protected:

@@ -21,6 +21,7 @@ public:
 
 	Unit* getUnit();
 	void setUnit(Unit&);
+	string getName();
 	//void setUnitNull();
 
 protected:
@@ -31,5 +32,31 @@ protected:
 	bool collision;
 private:
 };
+
+class DeepWater : public WorldBlock{
+public:
+	DeepWater();
+};
+
+class ShallowWater : public WorldBlock{
+public:
+	ShallowWater();
+};
+
+class Grass : public WorldBlock{
+public:
+	Grass();
+};
+
+class TallGrass : public WorldBlock{
+public:
+	TallGrass();
+};
+
+class Lava : public WorldBlock{
+public:
+	Lava();
+};
+
 
 #endif //WORLDBLOCK_H

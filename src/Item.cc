@@ -7,12 +7,15 @@ Item::Item(string Name, double Worth){
 	worth = Worth;
 }
 
-string Item::getName(){
+string Item::getName() const{
 	return name;
 }
 
-double Item::getWorth(){
+double Item::getWorth() const{
 	return worth;
+}
+void Item::setWorth(double newWorth){
+	worth = newWorth;
 }
 
 void Item::setName(string newName){
