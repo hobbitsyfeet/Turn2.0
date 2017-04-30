@@ -5,8 +5,6 @@
 #include <iostream>
 using namespace std;
 
-class Colours{
-public:
 	string red();
 	//string orange();
 	string yellow();
@@ -40,6 +38,5 @@ public:
 	string inverse();
 	string defaults();
 	string conceal();
-};
 
 #endif //COLOURS_H

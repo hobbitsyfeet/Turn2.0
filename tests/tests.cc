@@ -23,72 +23,70 @@ int main(){
 
 
 void TestColours(){
-	Colours format;
-	cout<<format.red()<<"RED\n";
-	cout<<format.yellow()<<"YELLOW\n";
-	cout<<format.green()<<"GREEN\n";
-	cout<<format.blue()<<"BLUE\n";
-	cout<<format.magenta()<<"MAGENTA\n";
-	cout<<format.cyan()<<"CYAN\n";
-	cout<<format.white()<<"WHITE\n";
-	cout<<format.gray()<<"GRAY\n";
-	cout<<format.darkGray()<<"DARKGRAY\n";
-	cout<<format.black()<<"BLACK\n";
+	cout<<red()<<"RED\n";
+	cout<<yellow()<<"YELLOW\n";
+	cout<<green()<<"GREEN\n";
+	cout<<blue()<<"BLUE\n";
+	cout<<magenta()<<"MAGENTA\n";
+	cout<<cyan()<<"CYAN\n";
+	cout<<white()<<"WHITE\n";
+	cout<<gray()<<"GRAY\n";
+	cout<<darkGray()<<"DARKGRAY\n";
+	cout<<black()<<"BLACK\n";
 
-	cout<<format.lightRed()<<"LIGHTRED\n";
-	cout<<format.lightBlue()<<"LIGHTBLUE\n";
-	cout<<format.lightGreen()<<"LIGHTGREEN\n";
-	cout<<format.lightCyan()<<"LIGHTCYAN\n";
+	cout<<lightRed()<<"LIGHTRED\n";
+	cout<<lightBlue()<<"LIGHTBLUE\n";
+	cout<<lightGreen()<<"LIGHTGREEN\n";
+	cout<<lightCyan()<<"LIGHTCYAN\n";
 
-	cout<<format.white();
+	cout<<white();
 
 
-	cout<<format.redbg()<<"REDBG";
-	cout<<format.defaults()<<endl;
-	cout<<format.greenbg()<<"GREENBG";
-	cout<<format.defaults()<<endl;
-	cout<<format.bluebg()<<"BLUEBG";
-	cout<<format.defaults()<<endl;
-	cout<<format.magentabg()<<"MAGENTABG";
-	cout<<format.defaults()<<endl;
-	cout<<format.cyanbg()<<"CYANBG";
-	cout<<format.defaults()<<endl;
-	cout<<format.black()<<format.whitebg()<<"WHITEBG";
+	cout<<redbg()<<"REDBG";
+	cout<<defaults()<<endl;
+	cout<<greenbg()<<"GREENBG";
+	cout<<defaults()<<endl;
+	cout<<bluebg()<<"BLUEBG";
+	cout<<defaults()<<endl;
+	cout<<magentabg()<<"MAGENTABG";
+	cout<<defaults()<<endl;
+	cout<<cyanbg()<<"CYANBG";
+	cout<<defaults()<<endl;
+	cout<<black()<<whitebg()<<"WHITEBG";
 
-	cout<<format.defaults()<<endl;
+	cout<<defaults()<<endl;
 }
 
 void TestUI(){
-	UI test;
 	cout<<endl;
-	cout<<test.statBar(3,10,0)<<endl;
-	cout<<test.statBar(5,10,0)<<endl;
-	cout<<test.statBar(10,10,0)<<endl;
-	cout<<test.statBar(3,10,1)<<endl;
-	cout<<test.statBar(5,10,1)<<endl;
-	cout<<test.statBar(10,10,1)<<endl;
-	cout<<test.statBar(3,10,2)<<endl;
-	cout<<test.statBar(5,10,2)<<endl;
-	cout<<test.statBar(10,10,2)<<endl;
-	cout<<test.statBar(3,10,3)<<endl;
-	cout<<test.statBar(5,10,3)<<endl;
-	cout<<test.statBar(10,10,3)<<endl;
+	cout<<statBar(3,10,0)<<endl;
+	cout<<statBar(5,10,0)<<endl;
+	cout<<statBar(10,10,0)<<endl;
+	cout<<statBar(3,10,1)<<endl;
+	cout<<statBar(5,10,1)<<endl;
+	cout<<statBar(10,10,1)<<endl;
+	cout<<statBar(3,10,2)<<endl;
+	cout<<statBar(5,10,2)<<endl;
+	cout<<statBar(10,10,2)<<endl;
+	cout<<statBar(3,10,3)<<endl;
+	cout<<statBar(5,10,3)<<endl;
+	cout<<statBar(10,10,3)<<endl;
 	cout<<endl;
 
 
 	for(int i = 0; i <= 10; i++ ){
-		cout<<test.statBar(i,10,0)<<100*i/10<<"%";
+		cout<<statBar(i,10,0)<<100*i/10<<"%";
 		cout<<endl;
 	}
 
 	for(int i = 0; i <= 100; i++ ){
-		cout<<test.statBar(i,100,2)<<i<<"%";
+		cout<<statBar(i,100,2)<<i<<"%";
 		cout<<endl;
 	}
 
-	cout<<test.statBar(5,10,3,"small")<<endl;
-	cout<<test.statBar(5,10,3,"medium")<<endl;
-	cout<<test.statBar(5,10,3, "large")<<endl;
+	cout<<statBar(5,10,3,"small")<<endl;
+	cout<<statBar(5,10,3,"medium")<<endl;
+	cout<<statBar(5,10,3, "large")<<endl;
 }
 
 void TestBlock(){

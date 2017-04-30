@@ -5,7 +5,7 @@
 /**
 *	respective colours : RED,GREEN,BLUE,WHITE
 */
-string UI::statBar(int stat, int maxStat, int colour, string length){
+string statBar(int stat, int maxStat, int colour, string length){
 
 	int size;
 	if (length == "small"){
@@ -24,26 +24,25 @@ string UI::statBar(int stat, int maxStat, int colour, string length){
 	double percent = (size * stat / maxStat);
 	int numHighlights = percent;
 	bool endBar = false;
-	Colours format;
 	string highlight;
 	string lowlight;
 
 	string bar;
 	if(colour == 0){
-		highlight = format.lightRed();
-		lowlight = format.red();
+		highlight = lightRed();
+		lowlight = red();
 	}
 	else if (colour == 1){
-		highlight = format.yellow();
-		lowlight = format.green();
+		highlight = yellow();
+		lowlight = green();
 	}
 	else if (colour == 2){
-		highlight = format.cyan();
-		lowlight = format.blue();
+		highlight = cyan();
+		lowlight = blue();
 	}
 	else if(colour == 3){
-		highlight = format.gray();
-		lowlight = format.darkGray();
+		highlight = gray();
+		lowlight = darkGray();
 	}
 
 	for(int index = 0; index < size; index++){
@@ -54,7 +53,7 @@ string UI::statBar(int stat, int maxStat, int colour, string length){
 		}
 
 		if(numHighlights != 0){
-			bar.append(format.bold());
+			bar.append(bold());
 			bar.append(highlight);
 			numHighlights --;
 		}
@@ -63,7 +62,7 @@ string UI::statBar(int stat, int maxStat, int colour, string length){
 			bar.append(lowlight);
 		}
 		bar.append("_");
-		bar.append(format.defaults());
+		bar.append(defaults());
 	}
 
 	if(endBar == false)
@@ -72,6 +71,6 @@ string UI::statBar(int stat, int maxStat, int colour, string length){
 	return bar;
 }
 
-string UI::statBar(int stat, int maxStat, int colour){
+string statBar(int stat, int maxStat, int colour){
 	return statBar(stat,maxStat,colour, "medium");
 }
