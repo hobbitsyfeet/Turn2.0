@@ -3,7 +3,9 @@
 #include <string>
 
 
-void Inventory::display(){
+string Inventory::display(){
+	string display = "";
+
 	vector<Item*>::iterator index;
 	vector<Item*>::iterator index2;
 	Item* accessItem;
@@ -17,15 +19,16 @@ void Inventory::display(){
 
 		//prevents segfault
 		if(index2 == storage.end()){
-			cout<<accessItem->getName()<<endl;
-			return;
+			display += accessItem->getName();
+			display += "\n";
+			break;
 		}
 
 		//valid item at index2
 		stackItem = *index2;
 
 		//go through and increment without display
-		while(stackItem->getName() == accessItem->getName()){
+		while(stackItem->getName() == accessItem->getName() && index2 != storage.end()){
 			stack++;
 			index++;
 			accessItem = *index;
@@ -34,13 +37,16 @@ void Inventory::display(){
 		}
 
 		//Display
-		cout<<accessItem->getName();
+		display += accessItem->getName();
 		if(stack != 0){
-			cout<<"s ("<<stack+1<<")";
+			display +="s (";
+			display += to_string(stack+1);
+			display+=")";
 		}
-		cout<<endl;
+		display +="\n";
 		stack=0;
 	}
+	return display;
 }
 
 
@@ -79,4 +85,3 @@ void Inventory::addItem(Item* newItem){
 }
 
 //void Inventory::removeItem(Item*){}
-

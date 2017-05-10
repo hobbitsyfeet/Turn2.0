@@ -5,7 +5,7 @@
 
 class Inventory{
 public:
-	void display();
+	string display();
 
 	int getMaxStorage() const;
 	void setMaxStorage(int);

@@ -15,8 +15,8 @@ int main(){
 
 	//TestColours();
 	//TestUI();
-	TestBlock();
-	//TestInventory();
+	//TestBlock();
+	TestInventory();
 	//TestMap();
 	return 0;
 }
@@ -152,53 +152,48 @@ void TestInventory(){
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item1;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item3;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item4;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item5;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
-	selectItem = &item2;
+	selectItem = &item4;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 
-	selectItem = &item2;
+	selectItem = &item5;
 	testUnit.inventory.addItem(selectItem);
-	testUnit.inventory.display();
+	cout<<testUnit.inventory.display();
 	cout<<endl;
 
-	selectItem->setWorth(2);
-	cout<<selectItem->getWorth();
-
-	selectItem->setName("Apple");
-	cout<<selectItem->getName();
 }
