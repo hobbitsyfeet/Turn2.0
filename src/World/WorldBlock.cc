@@ -50,47 +50,45 @@ string WorldBlock::getName(){
 ************************/
 /** Accessable terrain **/
 Grass::Grass(){
-	Colours effect;
 	OccupiedUnit = NULL;
 	name = "Grass";
-	format = effect.green();
+	format = green();
 	type = ',';
 	collision = false;
 }
 
 TallGrass::TallGrass(){
-	Colours effect;
+
 	OccupiedUnit = NULL;
 	name = "Tall Grass";
-	format = effect.bold() + effect.green();
+	format = bold() + green();
 	type = ';';
 	collision = false;
 }
 
 ShallowWater::ShallowWater(){
-	Colours effect;
+
 	OccupiedUnit = NULL;
 	name = "Shallow Water";
-	format = effect.lightBlue();
+	format = lightBlue();
 	type = '~';
 	collision = false;
 }
 
 /** Inacessable Terrain **/
 DeepWater::DeepWater(){
-	Colours effect;
+	
 	OccupiedUnit = NULL;
 	name = "Deep Water";
-	format = effect.blue();
+	format = blue();
 	type = '~';
 	collision = true;
 }
 
 Lava::Lava(){
-	Colours effect;
 	OccupiedUnit = NULL;
 	name = "Lava";
-	format = effect.bold() + effect.red();
+	format = bold() + red();
 	type = '~';
 	collision = true;
 }
