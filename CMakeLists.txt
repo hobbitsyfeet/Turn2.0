@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.7.1)
 project (Turn2.0)
 #Bring the headers, such as Student.h into the project
 include_directories(include)
+include_directories(include/window)
 
 
 #FLAGS

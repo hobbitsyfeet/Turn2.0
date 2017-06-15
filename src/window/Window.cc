@@ -1,6 +1,7 @@
 #include "Window.h"
 
 Window::Window(int width, int height, std::string title){
+	//disable resize manually
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
   running = true;
 	Window_Width = width;
@@ -43,9 +44,8 @@ void Window::createWindow(){
 void Window::draw(){}
 
 void Window::RenderScene(){
-//resize(17);
-	while (!glfwWindowShouldClose(window))
-	{
+
+
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -57,29 +57,17 @@ void Window::RenderScene(){
 		/* Poll for and process events */
 		glfwPollEvents();
 
-	}
+
 	// Clear the color and depth buffers.
 
 }
 
 
 
-void Window::ResizeScene()
-{
-   // Let's not core dump, no matter what.
-   if (Window_Height == 0)
-      Window_Height = 1;
-			this->window = glfwCreateWindow(Window_Width, Window_Height, "Turn", NULL, NULL);
-   glViewport(0, 0, Window_Width, Window_Height);
+void Window::ResizeScene(){}
 
-   glMatrixMode(GL_PROJECTION);
-   glLoadIdentity();
-   //gluPerspective(45.0f,(GLfloat)Width/(GLfloat)Height,0.1f,100.0f);
-
-   glMatrixMode(GL_MODELVIEW);
-
-}
 void Window::resize(int size){
+
 	switch(size){
 		case 0: break;
 		//4:3 aspect ratio resolutions: 640×480, 800×600, 960×720, 1024×768,
@@ -118,7 +106,7 @@ void Window::resize(int size){
 		case 28: Window_Width = 3840; Window_Height = 2160; break;
 	};
 	glfwSetWindowSize(window, Window_Width, Window_Height);
-	//ResizeScene();
+	CenterWindow();
 }
 
 void Window::WindowInit()
@@ -134,4 +122,10 @@ void Window::WindowInit()
 	glShadeModel(GL_SMOOTH);
 
 	// Load up the correct perspective matrix; using a callback directly.
+}
+
+void Window::CenterWindow(){
+	GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+	glfwSetWindowPos(window, (mode->width - Window_Width) / 2, (mode->height - Window_Height) / 2);
 }

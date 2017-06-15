@@ -3,3 +3,4 @@
 build/*
 include/.DS_Store
 .DS_Store
+build/Makefile

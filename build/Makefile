@@ -433,6 +433,36 @@ src/World/WorldBlock.cc.s:
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlock.cc.s
 .PHONY : src/World/WorldBlock.cc.s
 
+src/window/Window.o: src/window/Window.cc.o
+
+.PHONY : src/window/Window.o
+
+# target to build an object file
+src/window/Window.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/window/Window.cc.o
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/window/Window.cc.o
+.PHONY : src/window/Window.cc.o
+
+src/window/Window.i: src/window/Window.cc.i
+
+.PHONY : src/window/Window.i
+
+# target to preprocess a source file
+src/window/Window.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/window/Window.cc.i
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/window/Window.cc.i
+.PHONY : src/window/Window.cc.i
+
+src/window/Window.s: src/window/Window.cc.s
+
+.PHONY : src/window/Window.s
+
+# target to generate assembly for a file
+src/window/Window.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/window/Window.cc.s
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/window/Window.cc.s
+.PHONY : src/window/Window.cc.s
+
 tests/tests.o: tests/tests.cc.o
 
 .PHONY : tests/tests.o
@@ -500,6 +530,9 @@ help:
 	@echo "... src/World/WorldBlock.o"
 	@echo "... src/World/WorldBlock.i"
 	@echo "... src/World/WorldBlock.s"
+	@echo "... src/window/Window.o"
+	@echo "... src/window/Window.i"
+	@echo "... src/window/Window.s"
 	@echo "... tests/tests.o"
 	@echo "... tests/tests.i"
 	@echo "... tests/tests.s"

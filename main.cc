@@ -11,14 +11,15 @@ int main(int argc, char **argv) {
 	//Create window class
 	//Takes care of initialization and also creates a glfwWindow
 	Window window(480,640,"Turn");
-window.resize(16);
+
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window.getWindow());
-	//window.resize(17);
+	window.resize(15);
+	while (!glfwWindowShouldClose(window.getWindow()))
+	{
 	window.RenderScene();
-
+	}
 	/* Loop until the user closes the window */
-
 	glfwTerminate();
 	return 0;
 

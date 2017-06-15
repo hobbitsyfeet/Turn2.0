@@ -23,6 +23,7 @@ public:
 	void resize(int size);
 	void ResizeScene();
 	void WindowInit();
+	void CenterWindow();
 private:
 
 	bool running;
