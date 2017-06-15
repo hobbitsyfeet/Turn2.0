@@ -1,42 +1,47 @@
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
 #include <GL/freeglut.h>
+#else
+#ifdef _WIN32
+  #include <windows.h>
+#endif
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
 
-
-void draw(void) {
-
-    // Black background
-    glClearColor(0.0f,0.0f,0.0f,1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    //Draw i
-    glFlush();
-
-}
-
-//Main program
+#include"Window.h"
 
 int main(int argc, char **argv) {
+	Window* window = new Window(400,400, "Turn");
+	   glutInit(&argc, argv);
 
-    glutInit(&argc, argv);
+	   // To see OpenGL drawing, take out the GLUT_DOUBLE request.
+	   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 
-    /*Setting up  The Display
-    /    -RGB color model + Alpha Channel = GLUT_RGBA
-    */
-    glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
+	   // The following is for window creation.
+	   // Set Window size
+	   glutInitWindowSize(window->getWidth(), window->getHeight());
+	   // Create and Open a window with its title.
+		 glutCreateWindow("Turn");
+	   // Register and install the callback function to do the drawing.
+	   glutDisplayFunc(&CallBackRenderScene);
 
-    //Configure Window Postion
-    glutInitWindowPosition(50, 25);
+	   // If there's nothing to do, draw.
+	   //glutIdleFunc(&CallBackRenderScene);
 
-    //Configure Window Size
-    glutInitWindowSize(480,480);
+	   // It's a good idea to know when our window's resized.
+	   glutReshapeFunc(&CallBackResizeScene);
+	   // OK, OpenGL's ready to go.  Let's call our own init function.
+	   WindowInit(window->getWidth(), window->getHeight());
 
-    //Create Window
-    glutCreateWindow("Hello OpenGL");
-
-
-    //Call to the drawing function
-    glutDisplayFunc(draw);
-
-    // Loop require by OpenGL
-    glutMainLoop();
-
-    return 0;
+	   glEnable(GL_DEPTH_TEST);
+	   // Above functions represents those you will do to set up your
+	   // application program.
+	   // Now pass off control to OpenGL.
+	   glutMainLoop();
+	   // Never returns.
+	   return 1;
 }

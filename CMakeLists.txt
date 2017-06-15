@@ -17,6 +17,8 @@ add_definitions(${GLUT_DEFINITIONS})
 if(NOT GLUT_FOUND)
     message(ERROR " GLUT not found!")
 endif(NOT GLUT_FOUND)
+
+
 #########################################################
 # FIND OPENGL
 #########################################################
@@ -48,4 +50,5 @@ add_executable(Test ${TEST} ${SOURCES})
 #########################################################
 
   # create the program "test"
-  target_link_libraries(Turn ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+	target_link_libraries(Turn ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+	target_link_libraries(Test ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
