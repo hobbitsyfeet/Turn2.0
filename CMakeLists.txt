@@ -3,20 +3,23 @@ project (Turn2.0)
 #Bring the headers, such as Student.h into the project
 include_directories(include)
 
-#FLAGS
 
+#FLAGS
+if(APPLE)
+set (CMAKE_SHARED_LINKER_FLAGS "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
+endif()
 
 
 #########################################################
 # FIND GLUT
 #########################################################
-find_package(GLUT REQUIRED)
-include_directories(${GLUT_INCLUDE_DIRS})
-link_directories(${GLUT_LIBRARY_DIRS})
-add_definitions(${GLUT_DEFINITIONS})
-if(NOT GLUT_FOUND)
-    message(ERROR " GLUT not found!")
-endif(NOT GLUT_FOUND)
+#find_package(GLUT REQUIRED)
+#include_directories(${GLUT_INCLUDE_DIRS})
+#link_directories(${GLUT_LIBRARY_DIRS})
+#add_definitions(${GLUT_DEFINITIONS})
+#if(NOT GLUT_FOUND)
+#    message(ERROR " GLUT not found!")
+#endif(NOT GLUT_FOUND)
 
 
 #########################################################
@@ -50,5 +53,7 @@ add_executable(Test ${TEST} ${SOURCES})
 #########################################################
 
   # create the program "test"
-	target_link_libraries(Turn ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
-	target_link_libraries(Test ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+	target_link_libraries(Turn glfw ${GLFW_LIBRARIES})
+	target_link_libraries(Test glfw ${GLFW_LIBRARIES})
+	target_link_libraries(Turn ${OPENGL_LIBRARIES})
+	target_link_libraries(Test ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} )

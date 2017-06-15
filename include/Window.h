@@ -1,19 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GL/freeglut.h>
-#else
-#ifdef _WIN32
-  #include <windows.h>
-#endif
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
-#endif
-
+#include <GLFW/glfw3.h>
 #include <string>
 class Window {
 public:
@@ -27,16 +15,23 @@ public:
 	int getWidth();
 	int getHeight();
 	std::string getTitle();
+	GLFWwindow* getWindow();
+
+	void createWindow();
+	void RenderScene();
+	void draw();
+	void resize(int size);
+	void ResizeScene();
+	void WindowInit();
 private:
 
 	bool running;
 	int Window_Width;
 	int Window_Height;
 	std::string Title;
+	GLFWwindow* window;
 };
 
-void CallBackRenderScene();
-void CallBackResizeScene(int height, int width);
-void WindowInit(int height, int width);
+
 
 #endif //WINDOW_H
