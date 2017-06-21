@@ -1,36 +1,48 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+
+
+
 #include <GLFW/glfw3.h>
+
+
 #include <string>
 class Window {
 public:
-	Window(int width, int height, std::string title);
+	Window(int width, int height, const char* title);
 
-	void setWidth(int width);
-	void setHeight(int height);
-	bool setRunning(bool running);
+	//** methods
+	void createWindow();				//** Creates a window, initializes and assigns it **//
+	void renderScene();					//** GLFW swapbuffer and pollevents **//
+	void resizeWindow(int size);//** int value will select a resolution **//
+																	//(useful for menu selection)
 
-	bool getRunning();
-	int getWidth();
-	int getHeight();
-	std::string getTitle();
-	GLFWwindow* getWindow();
+	//** setters and getters
+		void setWidth(int width);
+		void setHeight(int height);
+		bool setRunning(bool running);
 
-	void createWindow();
-	void RenderScene();
-	void draw();
-	void resize(int size);
-	void ResizeScene();
-	void WindowInit();
-	void CenterWindow();
+	//** getVariables
+		bool getRunning();
+		int getWidth();
+		int getHeight();
+
+	//** get GLFW window properties
+		const char* getTitle();
+		GLFWwindow* getWindow();
+
 private:
+	void centerWindow();
 
 	bool running;
-	int Window_Width;
-	int Window_Height;
-	std::string Title;
+	int position_x;
+	int position_y;
+	int window_Width;
+	int window_Height;
+	const char* title;
 	GLFWwindow* window;
+	float ratio;
 };
 
 

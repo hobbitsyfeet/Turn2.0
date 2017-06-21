@@ -1,8 +1,11 @@
 #include <GLFW/glfw3.h>
+#include "GLModel.h"
 #include"Window.h"
+#include <iostream>
+
 
 int main(int argc, char **argv) {
-
+	GLModel model;
 
 	/* Initialize the library */
 	if (!glfwInit())
@@ -11,13 +14,21 @@ int main(int argc, char **argv) {
 	//Create window class
 	//Takes care of initialization and also creates a glfwWindow
 	Window window(480,640,"Turn");
-
+	if (!window.getWindow())
+	{
+		glfwTerminate();
+		//exit(EXIT_FAILURE);
+	}
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window.getWindow());
-	window.resize(15);
+	model.init();
+	model.setViewport(window.getWidth()*2,window.getHeight());
+	window.resizeWindow(19);
 	while (!glfwWindowShouldClose(window.getWindow()))
 	{
-	window.RenderScene();
+		//double last = glfwGetTime();
+		window.renderScene();
+		model.draw();
 	}
 	/* Loop until the user closes the window */
 	glfwTerminate();
