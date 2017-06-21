@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.8.1/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.8.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.8.1/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.8.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/justinpetluk/Github/Turn2.0/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.8.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.8.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -433,6 +433,36 @@ src/World/WorldBlock.cc.s:
 	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/World/WorldBlock.cc.s
 .PHONY : src/World/WorldBlock.cc.s
 
+src/graphics/GLModel.o: src/graphics/GLModel.cc.o
+
+.PHONY : src/graphics/GLModel.o
+
+# target to build an object file
+src/graphics/GLModel.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/graphics/GLModel.cc.o
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/graphics/GLModel.cc.o
+.PHONY : src/graphics/GLModel.cc.o
+
+src/graphics/GLModel.i: src/graphics/GLModel.cc.i
+
+.PHONY : src/graphics/GLModel.i
+
+# target to preprocess a source file
+src/graphics/GLModel.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/graphics/GLModel.cc.i
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/graphics/GLModel.cc.i
+.PHONY : src/graphics/GLModel.cc.i
+
+src/graphics/GLModel.s: src/graphics/GLModel.cc.s
+
+.PHONY : src/graphics/GLModel.s
+
+# target to generate assembly for a file
+src/graphics/GLModel.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/src/graphics/GLModel.cc.s
+	$(MAKE) -f CMakeFiles/Turn.dir/build.make CMakeFiles/Turn.dir/src/graphics/GLModel.cc.s
+.PHONY : src/graphics/GLModel.cc.s
+
 src/window/Window.o: src/window/Window.cc.o
 
 .PHONY : src/window/Window.o
@@ -530,6 +560,9 @@ help:
 	@echo "... src/World/WorldBlock.o"
 	@echo "... src/World/WorldBlock.i"
 	@echo "... src/World/WorldBlock.s"
+	@echo "... src/graphics/GLModel.o"
+	@echo "... src/graphics/GLModel.i"
+	@echo "... src/graphics/GLModel.s"
 	@echo "... src/window/Window.o"
 	@echo "... src/window/Window.i"
 	@echo "... src/window/Window.s"

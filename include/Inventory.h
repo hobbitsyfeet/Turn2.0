@@ -14,6 +14,7 @@ public:
 	//Item removeItem(Item*);
 private:
 	int maxStorage;
-	vector<Item*> storage;
+
+	vector< pair<Item*, int> > storage;
 };
 #endif //INVENTORY_H

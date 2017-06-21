@@ -150,47 +150,56 @@ void TestInventory(){
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item1;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item3;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item4;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item5;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 	selectItem = &item4;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
 
 	selectItem = &item5;
 	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
 
