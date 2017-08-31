@@ -18,7 +18,7 @@ public:
 	GLModel();
 	//~GLModel();
 	void init();			//** Initializes the scene (viewport, camera and lighting)
-	void draw();			//**
+	void display();			//**
 
 	void rotateCamera(float horizontal, float vertical);
 	void zoomCamera(float distance);

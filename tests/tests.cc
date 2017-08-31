@@ -142,12 +142,13 @@ void TestInventory(){
 	Unit testUnit;
 	Item* selectItem;
 
-	Item item1;
+	/*Item item1("Cat",2);
 	Item item2("Apple", 2);
 	Item item3("Dog",5);
-	Item item4("Rabbit",5);
-	Item item5("Toy",5);
-
+	Armour item4("Hat",5, );*/
+	Consumable item5("Apple",5,1,10);
+	Misc item6("Glass", 1, 10);
+/*
 	selectItem = &item2;
 	testUnit.inventory.addItem(selectItem);
 	cout<<"adding "<<selectItem->getName()<<endl;
@@ -202,5 +203,11 @@ void TestInventory(){
 	cout<<"adding "<<selectItem->getName()<<endl;
 	cout<<testUnit.inventory.display();
 	cout<<endl;
+*/
+	selectItem = &item6;
 
+	testUnit.inventory.addItem(selectItem);
+	cout<<"adding "<<selectItem->getName()<<endl;
+	cout<<testUnit.inventory.display();
+	cout<<endl;
 }

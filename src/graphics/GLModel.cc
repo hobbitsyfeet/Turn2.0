@@ -7,6 +7,7 @@ Author: Justin Petluk
 *
 *******************************/
 #include "GLModel.h"
+#include "GLVIEW.h"
 
 GLModel::GLModel(){}
 //GLModel::~GLModel(){}
@@ -40,8 +41,8 @@ void GLModel::init(){
 
 }
 
-void GLModel::draw(){
-
+void GLModel::display(){
+//rectangle(1,1);
 	// clear buffer
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
@@ -54,6 +55,8 @@ glRotatef(cameraAngleX, 1, 0, 0);   // pitch
 glRotatef(cameraAngleY, 0, 1, 0);   // heading
 
 // draw a triangle
+//generateShapes();
+/*
 glBegin(GL_TRIANGLES);
 		glNormal3f(0, 0, 1);
 		glColor3f(1, 0, 0);
@@ -62,7 +65,7 @@ glBegin(GL_TRIANGLES);
 		glVertex3f(0, 2, 0);
 		glColor3f(0, 0, 1);
 		glVertex3f(-3, -2, 0);
-glEnd();
+glEnd();*/
 
 glPopMatrix();
 
@@ -102,7 +105,7 @@ void GLModel::setViewport(int width, int height){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(50.0f, (float)(width)/height, 0.1f, 20.0f); // FOV, AspectRatio, NearClip, FarClip
-
+	//gluOrtho2D(50.0f, (float)(width)/height, 0.1f, 20.0f);
 	// switch to modelview matrix in order to set scene
 	glMatrixMode(GL_MODELVIEW);
 }
