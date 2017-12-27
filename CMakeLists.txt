@@ -11,6 +11,11 @@ if(APPLE)
 set (CMAKE_SHARED_LINKER_FLAGS "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
 endif()
 
+if(WIN32)
+CMAKE_SHARED_LINKER_FLAGS "-lglfw3dll -lopengl32"
+endif()
+
+
 
 #########################################################
 # FIND GLUT
