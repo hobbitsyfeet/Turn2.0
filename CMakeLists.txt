@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.7.1)
-enable_language(CXX)
+enable_language(CXX) #CXX Compiler
 project (Turn)
 
-include_directories(include)
-include_directories(./resources/include/)
-link_directories(./resources/lib-mingw/)
 
 #FLAGS
 if(APPLE)
@@ -15,8 +12,8 @@ if(WIN32)
 set (CMAKE_SHARED_LINKER_FLAGS "-lglfw3 -lgdi32 -lopengl32")
 endif()
 
-
-
+#Removes 2nd terminal i/o window [used for debugging ONLY]
+set(CMAKE_SHARED_LINKER_FLAGS "-mwindows")
 
 
 #########################################################
@@ -24,13 +21,10 @@ endif()
 #########################################################
 add_subdirectory(./resources/glfw-3.2.1)
 include_directories(./resources/glfw-3.2.1/include/)
-#set(GLFW_LIBRARIES ./resources/glfw-3.2.1/)
 
 
-#add_subdirectory(/MinGW/include)
-#find_package(glfw3 3.2 REQUIRED)
 #########################################################
-# FIND OPENGL
+# OPENGL
 #########################################################
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
@@ -40,10 +34,22 @@ if(NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif(NOT OPENGL_FOUND)
 
+
+#Include Directories
+include_directories(include)
+include_directories(./resources/include/)
+link_directories(./resources/lib-mingw/)
+
 #########################################################
 # Include Files
 #########################################################
-#Can manually add the sources using the set command as follows:
+
+#Include Directories
+include_directories(include)
+include_directories(./resources/include/)
+link_directories(./resources/lib-mingw/)
+
+#Include files
 set(SOURCES_RECURSE src/*.cc)
 set(MAIN ./main.cc)
 set(TEST ./tests/tests.cc)
