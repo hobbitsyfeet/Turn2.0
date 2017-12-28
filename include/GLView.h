@@ -1,8 +1,17 @@
 #ifndef GLVIEW_H
 #define GLVIEW_H
 
+#ifdef __APPLE__
 #include "OpenGL/gl.h"
 #include "OpenGL/glu.h"
+#endif
+
+#ifdef __WIN32__
+#include "Windows.h"
+#include "GL/gl.h"
+#include "GL/glu.h"
+#endif
+
 #include <vector>
 
 void generateShapes();

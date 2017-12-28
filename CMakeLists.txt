@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.7.1)
-project (Turn2.0)
+enable_language(CXX)
+project (Turn)
 
 include_directories(include)
-include_directories(include/window)
-include_directories(include/graphics)
-
+include_directories(./resources/include/)
+link_directories(./resources/lib-mingw/)
 
 #FLAGS
 if(APPLE)
@@ -12,23 +12,23 @@ set (CMAKE_SHARED_LINKER_FLAGS "-lglfw -framework Cocoa -framework OpenGL -frame
 endif()
 
 if(WIN32)
-CMAKE_SHARED_LINKER_FLAGS "-lglfw3dll -lopengl32"
+set (CMAKE_SHARED_LINKER_FLAGS "-lglfw3 -lgdi32 -lopengl32")
 endif()
 
 
 
-#########################################################
-# FIND GLUT
-#########################################################
-#find_package(GLUT REQUIRED)
-#include_directories(${GLUT_INCLUDE_DIRS})
-#link_directories(${GLUT_LIBRARY_DIRS})
-#add_definitions(${GLUT_DEFINITIONS})
-#if(NOT GLUT_FOUND)
-#    message(ERROR " GLUT not found!")
-#endif(NOT GLUT_FOUND)
 
 
+#########################################################
+# GLFW
+#########################################################
+add_subdirectory(./resources/glfw-3.2.1)
+include_directories(./resources/glfw-3.2.1/include/)
+#set(GLFW_LIBRARIES ./resources/glfw-3.2.1/)
+
+
+#add_subdirectory(/MinGW/include)
+#find_package(glfw3 3.2 REQUIRED)
 #########################################################
 # FIND OPENGL
 #########################################################
@@ -60,7 +60,7 @@ add_executable(Test ${TEST} ${SOURCES})
 #########################################################
 
   # create the program "test"
-	target_link_libraries(Turn glfw ${GLFW_LIBRARIES})
-	target_link_libraries(Test glfw ${GLFW_LIBRARIES})
+  target_link_libraries(Turn glfw ${OPENGL_glu_LIBRARY} ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
 	target_link_libraries(Turn ${OPENGL_LIBRARIES})
-	target_link_libraries(Test ${OPENGL_LIBRARIES} ${GLFW_LIBRARY} )
+  target_link_libraries(Test glfw ${OPENGL_glu_LIBRARY} ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
+  target_link_libraries(Test ${OPENGL_LIBRARIES})

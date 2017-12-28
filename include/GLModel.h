@@ -9,8 +9,16 @@
 #ifndef GLMODEL_H
 #define GLMODEL_H
 
+#ifdef __APPLE__
 #include "OpenGL/gl.h"
 #include "OpenGL/glu.h"
+#endif
+
+#ifdef __WIN32__
+#include "Windows.h"
+#include "GL/gl.h"
+#include "GL/glu.h"
+#endif
 
 class GLModel{
 public:
