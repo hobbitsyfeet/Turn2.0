@@ -19,6 +19,13 @@ set(CMAKE_SHARED_LINKER_FLAGS "-mwindows")
 #########################################################
 # GLFW
 #########################################################
+
+#Disable building of tests and examples
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+#set the subdirectory for building
 add_subdirectory(./resources/glfw-3.2.1)
 include_directories(./resources/glfw-3.2.1/include/)
 
@@ -34,11 +41,6 @@ if(NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif(NOT OPENGL_FOUND)
 
-
-#Include Directories
-include_directories(include)
-include_directories(./resources/include/)
-link_directories(./resources/lib-mingw/)
 
 #########################################################
 # Include Files
@@ -59,7 +61,7 @@ set(TEST ./tests/tests.cc)
 file(GLOB_RECURSE SOURCES src/*.cc)
 
 add_executable(Turn ${MAIN} ${SOURCES})
-add_executable(Test ${TEST} ${SOURCES})
+#add_executable(Test ${TEST} ${SOURCES})
 
 ########################################################
 # Linking
@@ -68,5 +70,5 @@ add_executable(Test ${TEST} ${SOURCES})
   # create the program "test"
   target_link_libraries(Turn glfw ${OPENGL_glu_LIBRARY} ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
 	target_link_libraries(Turn ${OPENGL_LIBRARIES})
-  target_link_libraries(Test glfw ${OPENGL_glu_LIBRARY} ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
-  target_link_libraries(Test ${OPENGL_LIBRARIES})
+#  target_link_libraries(Test glfw ${OPENGL_glu_LIBRARY} ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
+#  target_link_libraries(Test ${OPENGL_LIBRARIES})
