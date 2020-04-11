@@ -1,9 +1,0 @@
-*.exe
-*.o
-build/*
-*.DS_Store
-build/Makefile
-*.pch
-build/Makefile
-*.png
-src/.DS_Store
