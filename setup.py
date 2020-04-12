@@ -11,7 +11,9 @@ setup(
   download_url = 'https://github.com/hobbitsyfeet/Turn2.0/archive/v_01.tar.gz',    # I explain this later on
   keywords = ['GAME', 'TURN', 'ADVENTURE'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
-          'numpy',
+          'numpy', #numpy==1.18.2
+          'ansicolors' #ansicolors==1.1.8
+          ,
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
