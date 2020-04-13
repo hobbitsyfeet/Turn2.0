@@ -1,6 +1,6 @@
 id	name			symbol	red	green	blue
-0	grass			#	0	200	0
-1	tall_grass		#	0	100	0
+0	grass			#	121	168	74
+1	tall_grass		#	60	100	50
 2	dirt			.	153	76	0
 3	mud			.	102	51	0
 4	shallow_water		~	51	153	255
@@ -29,8 +29,8 @@ id	name			symbol	red	green	blue
 27	bottom_stone_ledge	_	100	100	100
 28	top_stone_ledge		-	100	100	100
 29	chest			!	155	80	0
-30	snow			*	0	0	0
+30	snow			*	255	255	255
 31	deep_snow		*	51	153	255
 32	fog			#	100	100	100
 33	jungle			%	0	70	0
-999	NA			9	255	255	255
+-1	NA			 	0	0	0
