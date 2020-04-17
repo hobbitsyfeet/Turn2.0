@@ -1,6 +1,8 @@
-def action_handler(game_manager, action):
+import sys
+
+def action_handler(game_manager, player, action):
     world = game_manager.world
-    character = game_manager.units[0] #FIX THIS THIS IS WRONG
+    character = player #FIX THIS THIS IS WRONG
     feed = game_manager.iofeed
     
     action = action.lower()
@@ -10,8 +12,10 @@ def action_handler(game_manager, action):
         attack(character, world)
     elif action[0] == "defend":
         defend(character, feed)
-    elif action[0] == "move":
-        move(character, action[1], int(action[2]), world, feed)
+    elif action[0] == "move" and len(action) > 1 or action == "w" or action =="a" or action == "s" or action == "d":
+        if len(action) == 2:
+            action.append(1) #set move distance to 1
+        move(character, action[1], int(action[2]), game_manager)
     elif action[0] == "sneak":
         sneak(character)
     elif action[0] == "run":
@@ -22,7 +26,7 @@ def action_handler(game_manager, action):
         pickpocket(character, world)
     elif action[0] == "talk":
         talk(character,world)
-    elif action[0] == "inventory":
+    elif action[0] == "inventory" or action[0] == "i" or action[0] == "bag":
         open_inventory(character)
     elif action[0] == "close":
         close_inventory(character)
@@ -38,19 +42,31 @@ def action_handler(game_manager, action):
     elif action[0] == "menu":
 
         #Handle this case before moving on
-        while action[1] == "":
-            action[1] = feed.command()
+        #while action[1] == "":
+        feed.info("What would you like to do?")
+        feed.info(" 1) save")
+        feed.info(" 2) load")
+        feed.info(" 3) help")
+        feed.info(" 4) settings")
+        feed.info(" 5) exit menu")
+        feed.info(" 6) quit")
+        menu_option = feed.command()
 
-        if action[1] == "save":
+        if menu_option == "save" or menu_option == "1":
             pass
-        elif action[1] == "load":
+        elif menu_option == "load" or menu_option == "2":
             pass
-        elif action[1] == "help":
+        elif menu_option == "help" or menu_option == "3":
             pass
-        elif action[1] == "settings":
+        elif menu_option == "settings" or menu_option == "4":
             pass
-        elif action[1] == "exit menu":
+        elif menu_option == "exit menu" or menu_option == "5":
+            feed.clear()
             return
+        elif menu_option == "quit" or menu_option == "6":
+            sys.stdout.write("\x1B[2J\x1B[H")
+            sys.exit(1)
+
 
 
 def turn(character, world, feed):
@@ -77,26 +93,47 @@ def sneak(character):
     """
     pass
 
-def move(character, direction, distance, world, feed):
+def move(character, direction, distance, game_manager):
     """
     moves to a direction
     """
+    world = game_manager.world
+    feed = game_manager.iofeed
 
-    #TODO check path
-
-    #replaces the old location of the character
-    world.update_tile(character.x, character.y)
+    change_y = 0
+    change_x = 0
     if direction == "n" or direction == "north":
-        character.y -= distance
+        change_y = -1
     elif direction == "e" or direction == "east":
-        character.x += distance
+        change_x = 1
     elif direction == "s" or direction == "south":
-        character.y += distance
+        change_y = 1
     elif direction == "w" or direction == "west":
-        character.x -= distance
+        change_x = -1
     elif direction == "weast":
         character.health -= 1
         feed.info("Your brain hurts. Loose 1 health.")
+
+    #TODO check path
+    for i in range(distance):
+
+        #replaces the old location of the character
+        world.update_tile(character.x, character.y)
+
+        next_tile = world.get_tile((character.x + change_x), (character.y + change_y))
+        if (character.stamina - next_tile["cost"] < 0):
+            feed.info("Could Not move")
+            break
+        else:
+
+            character.x += change_x
+            character.y += change_y
+            character.stamina -= next_tile["cost"]
+
+            teleport(character, game_manager)
+        
+
+
 
     feed.info("Currently at: ("+ str(character.x) + "," + str(character.y)+")" )
     character.display()
@@ -130,10 +167,39 @@ def open_inventory(character):
     """
     Opens character's own inventory.
     """
-    pass
+    character.inventory.open_inventory()
 
 def close_inventory(character):
     """
     Closes character's own inventory.
     """
     pass
+
+def check_tile(world):
+    #check if you can enter the point
+
+    #check if there is a portal
+    pass
+
+def teleport(character, game_manager):
+    """
+    Teleports the character to another point
+    game manager is needed to load across maps
+    """
+    
+    x = character.x
+    y = character.y
+    portal = game_manager.world.portals
+
+    
+    #if player location matches an existing 
+    if (x,y) in portal: #looks for if the player is on a portal (portal_loc is key, charactor accesses it with location)
+        
+        if portal[(x, y)]["target_world"] == game_manager.world.name:
+            game_manager.load_world(game_manager.worlds_path + portal[(x, y)]["rtarget_world"])
+        
+        #assigns each coordinate of character by each coordinate from target location of the portal
+        (character.x, character.y) = portal[(x, y)]["target_loc"]
+
+        game_manager.iofeed.info("You entered a new area")
+

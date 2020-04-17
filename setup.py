@@ -1,7 +1,12 @@
-from distutils.core import setup
+from setuptools import setup
+import os
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 setup(
-  name = 'Turn2',         # How you named your package folder (MyLib)
-  packages = ['Turn2'],   # Chose the same as "name"
+  name = 'Turn',         # How you named your package folder (MyLib)
+  packages = ['Turn'],   # Chose the same as "name"
   version = '0.2',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A Turn based adventure game.',   # Give a short description about your library

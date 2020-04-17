@@ -1,17 +1,18 @@
 from game import tiles #character gains info about specific tiles that exist in map
+from game import inventory
 
 class character():
     def __init__(self):
         self.tiles = tiles.tiles()
-
+        self.inventory = inventory.inventory()
         self.define_health(100,100)
         self.define_stamina(100,100)
         self.weight = 10
 
-        self.x = 0
-        self.y = 0
+        self.x = 10
+        self.y = 10
 
-        self.symbol = '0'
+        self.symbol = 'Ü'
         self.colour = (255,255,255)
         
 

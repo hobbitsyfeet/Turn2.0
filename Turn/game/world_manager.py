@@ -12,6 +12,8 @@ class manager():
         self.states = None #FUTURE
         self.iofeed = feed.feed()
 
+        self.worlds_path = "C:/Users/legom/Documents/GitHub/Turn2.0/saves/maps"
+
 
 
     def new_feed(self):
@@ -29,12 +31,20 @@ class manager():
     def spawn_unit(self, filename, location):
         pass
     
-    def action(self, action):
-        actions.action_handler(self, action)
+    def action(self, player, action):
+        actions.action_handler(self, player ,action)
 
     def load_world(self, filename):
         self.world = maps.tilemap()
-        self.world.load_map(filename)
+        self.world.load_map(filename + ".world")
+        self.world.load_portals(filename + ".portals")
+        
+
+        #move feed if it overlaps 1) Push right if map overlaps 2) push down when height is not overlapped
+        if self.world.width > self.iofeed.top_left[0] and self.world.height > self.iofeed.top_left[1]:
+            self.iofeed.top_left = (self.world.width+1,self.iofeed.top_left[1])
+        elif self.world.width < self.iofeed.top_left[0] and self.world.height > self.iofeed.top_left[1]:
+            self.iofeed.top_left = (self.iofeed.top_left[1],self.world.height+1)
 
     def save_game(self, filename):
         pass

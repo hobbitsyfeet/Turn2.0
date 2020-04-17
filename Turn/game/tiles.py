@@ -37,22 +37,23 @@ class tiles():
             line = line.split('\t')
 
             #should be formatted id: ("name","symbol",r,g,b)
-            self.tile_dictionary[int(line[0])] = (str(line[1]), 
-                                                  str(line[2]), 
-                                                  int(line[3]), 
-                                                  int(line[4]), 
-                                                  int(line[5])
-                                                  )
-
+            self.tile_dictionary[int(line[0])] = {"name":str(line[1]), #symbol
+                                                  "symbol":str(line[2]), #name
+                                                  "red":int(line[3]), #r
+                                                  "green":int(line[4]), #g
+                                                  "blue":int(line[5]), #b
+                                                  "cost":float(line[6]) #stamina_cost
+                                                 }
 
     def display_tile(self, tile_id):
         #print(self.tile_dictionary[tile_id])
 
-        symbol = self.tile_dictionary[tile_id][1]
+        symbol = self.tile_dictionary[tile_id]["symbol"]
         #'''
-        r = self.tile_dictionary[tile_id][2]
-        g = self.tile_dictionary[tile_id][3]
-        b = self.tile_dictionary[tile_id][4]
+        r = self.tile_dictionary[tile_id]["red"]
+        g = self.tile_dictionary[tile_id]["green"]
+        b = self.tile_dictionary[tile_id]["blue"]
+
         #print(color(symbol, fg=strgb(r,g,b)),end="")
         #
         sys.stdout.write(color(symbol, fg=colours.strgb((r,g,b))))

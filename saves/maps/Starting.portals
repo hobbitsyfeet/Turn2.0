@@ -1,0 +1,5 @@
+portal_x	portal_y	portal_name	target_world	target_x	target_y
+1		0		test_portal	Starting	5		18
+2		0		test_portal	Starting	5		18
+2		1		test_portal	Starting	5		18
+1		1		test_portal	Starting	5		18
