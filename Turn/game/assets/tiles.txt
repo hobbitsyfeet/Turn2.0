@@ -31,6 +31,6 @@ id	name			symbol	red	green	blue	stamina_cost
 29	chest			!	155	80	0	999
 30	snow			*	255	255	255	1.5
 31	deep_snow		*	51	153	255	5
-32	fog			#	100	100	100	1.1
+32	fog			#	200	200	200	1.2
 33	jungle			%	0	70	0	3
 -1	NA			 	0	0	0	1

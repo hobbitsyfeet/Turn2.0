@@ -2,7 +2,6 @@ import time
 import cursor
 from os import system
 
-
 from game import world_manager
 
 
@@ -18,17 +17,20 @@ if __name__ == "__main__":
 
 
     manager.new_character("Hobbitsyfeet")
-    manager.units['Hobbitsyfeet'].display()
+    manager.units['Hobbitsyfeet'][0].display()
 
+    manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
     
     while True:
 
         command = manager.iofeed.command()
         manager.iofeed.create_feed()
+        
         cursor.show()
         #manager.world.map_tiles.update_tile(100,50,'' ,(0,0,0))
         #command = input()
-        manager.action(manager.units['Hobbitsyfeet'], command)
+        manager.action(manager.units['Hobbitsyfeet'][0], command)
+        manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
         #manager.units["Hobbitsyfeet"].inventory
 
     # player = character.character()

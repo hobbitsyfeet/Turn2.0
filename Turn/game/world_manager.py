@@ -2,15 +2,22 @@ from game import actions
 from game import character
 from game import maps
 from game import feed
+from game import items
 
 class manager():
     def __init__(self):
-        self.units = {}
+        
+        #NOTE This structure allows direct access given a name, as well as iteration capabilities for Turns.
+        self.units = {} #{Player1:[player],"Ghouls":[Ghoul1, Ghoul2]}
+
         self.world = None
+
+        self.items = items.item_spawn()
         
         self.events = None #FUTURE
         self.states = None #FUTURE
         self.iofeed = feed.feed()
+
 
         self.worlds_path = "C:/Users/legom/Documents/GitHub/Turn2.0/saves/maps"
 
@@ -20,16 +27,39 @@ class manager():
         self.iofeed.create_feed()
 
     def new_character(self, name):
-        self.units[name] = character.character()
+        self.units[name] = [character.character(name)]
+        self.units[name][0].inventory.feed = self.iofeed #set inventory feed
+
+        spawner = items.item_spawn()
+
+        #NOTE THESE ARE TESTS
+        for i in range (30):
+            self.units[name][0].inventory.add(spawner.spawn(i)) #add a stick
+        for i in range (30):
+            self.units[name][0].inventory.add(spawner.spawn(i)) #add a stick
 
     def load_units(self, filenames):
+
+        #self.units[name].inventory = self.iofeed #set inventory feed
+        #self.units[name].inventory = self.iofeed #set inventory feed
         pass
 
     def save_state(self, filename):
         pass
     
     def spawn_unit(self, filename, location):
-        pass
+        
+        #TODO implement (should return character object)
+        #unit = load_unit(filename, unit_id)
+
+        
+        #if unit exists, append the unit to the key
+        if self.units[unit.name]:
+            self.units[unit.name].append(unit)
+        #else, create a new unit key and assign the value to a list of characters
+        else:
+            self.units[unit.name] = unit
+
     
     def action(self, player, action):
         actions.action_handler(self, player ,action)

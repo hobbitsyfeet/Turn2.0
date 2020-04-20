@@ -17,7 +17,7 @@ class tilemap():
         self.name =""
 
         self.map_tiles = tiles.tiles()
-        self.map_tiles.load_tiles(self.map_tiles.file_loc)
+        self.map_tiles.load_tiles(self.map_tiles.file_path)
         self.width = 0
         self.height = 0
         self.world = None

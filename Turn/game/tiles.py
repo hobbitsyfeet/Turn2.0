@@ -2,13 +2,14 @@ import sys
 import os
 from colors import color
 from game import colours
+from game import utilites
 
 
 class tiles():
     def __init__(self):
-        self.dir = "./Turn/game/"
+        self.dir = "./Turn/game/assets/"
         self.file = "tiles.txt"
-        self.file_loc = (self.dir+self.file)
+        self.file_path = (self.dir+self.file)
 
         self.offset_x = 1
         self.offset_y = 1
@@ -23,18 +24,8 @@ class tiles():
         """
         Loads tiles to be defined in a dictionary and used later on.
         """
-        file = open(filename, 'r')
-        next(file) #skip first line. This is used for user
-
-        lines = [line.rstrip() for line in file]
+        lines = utilites.parse_input(filename)
         for line in lines:
-
-            #get rid of repeating tabs
-            while "\t\t" in line:
-                line = line.replace("\t\t", "\t")
-
-            #split by single tabs into a list
-            line = line.split('\t')
 
             #should be formatted id: ("name","symbol",r,g,b)
             self.tile_dictionary[int(line[0])] = {"name":str(line[1]), #symbol
@@ -100,7 +91,7 @@ if __name__ == "__main__":
 
     print(os.getcwd())
     map_tiles = tiles()
-    map_tiles.load_tiles(map_tiles.file_loc)
+    map_tiles.load_tiles(map_tiles.file_path)
 
 
     for j in range(100):

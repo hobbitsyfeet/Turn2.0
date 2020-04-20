@@ -1,0 +1,32 @@
+id	name	damage	range	durability	cost	max_stack	equip_location	weight	chance	ability	effect_amount	modifiers	description
+0	Stick	1	1	10	0.50	10	Single Hand	0.20	0.1	none	0	none	A stick that fell from a tree somewhere.
+1	Shortsword	5	1	100	1.00	1	Single Hand	5.00	0.05	none	0	none	A short sword.
+2	Longsword	7	1	100	1.50	1	Two Hand	6.50	0.02	none	0	none	A long sword.
+3	Gladius	5	1	100	0.80	1	Single Hand	3.60	0.05	none	0	none	A gladius
+4	Jian	5	1	100	0.90	1	Single Hand	4.00	0.01	none	0	none	none
+5	Cutlass	3	1	100	0.70	1	Single Hand	4.00	0.05	none	0	none	none
+6	Claymore	8	2	150	2.00	1	Two Hand	6.00	0.01	none	0	none	none
+7	Broadsword	5	1	100	1.25	1	Single Hand	5.00	0.01	none	0	none	none
+8	Scimitar	4	1	100	0.80	1	Single Hand	3.00	0.02	none	0	none	none
+9	Wakazashi	4	1	200	0.70	1	Single Hand	3.00	0.02	none	0	none	none
+10	Hamberge	8	1	200	1.75	1	Single Hand	10.00	0.01	none	0	none	none
+11	Rapier	3	1	100	0.50	1	Single Hand	3.00	0.02	none	0	none	none
+12	Viking Sword	6	1	100	1.00	1	Single Hand	5.00	0.01	none	0	none	none
+13	Spartha	6	1	125	1.00	1	Single Hand	5.00	0.01	none	0	none	none
+14	Calvary Sabre	5	1	100	0.80	1	Single Hand	4.00	0.01	none	0	none	none
+15	Persian Sabre	5	1	100	0.90	1	Single Hand	4.00	0.01	none	0	none	none
+16	Katana	7	1	200	1.00	1	Single Hand	3.00	0.01	none	0	none	none
+17	Odachi	9	2	250	1.50	1	Two Hand	6.00	0.01	none	0	none	none
+18	Dadao	10	2	200	2.50	1	Two Hand	12.00	0.01	none	0	none	none
+19	Machete	3	1	100	1.00	1	Single Hand	3.00	0.05	none	0	none	none
+20	Bow	4	7	50	0.75	1	Two Hand	0.50	0.1	none	0	none	none
+21	Compound Bow	6	10	100	2.00	1	Two Hand	0.50	0.05	none	0	none	none
+22	Recurve Bow	5	8	100	0.75	1	Two Hand	0.50	0.05	none	0	none	none
+23	Long Bow	8	12	150	1.25	1	Two Hand	1.00	0.03	none	0	none	none
+24	Cross Bow	10	12	150	3.00	1	Two Hand	5.00	0.02	none	0	none	none
+25	Mongolian Bow	6	10	100	0.50	1	Two Hand	0.50	0.02	none	0	none	none
+26	Wheat	0	0	1	0.20	100	none	0.01	0.25	Food	0.1	none	Glutonous snacc ready for breading.
+27	Rice	0	0	1	0.20	100	none	0.01	0.25	Food	0.1	none	Asain staple.
+28	Apple	0.1	5	1	0.20	10	Single Hand	0.20	0.1	Food	1	none	What else?
+29	Pear	0.1	5	1	0.20	10	Single Hand	0.20	0.1	Food	1	none	Pare
+30	Beer	0.2	2	1	0.30	5	Single Hand	0.50	0.05	Drink	2	Alcohol	"A golden, delicious drink."

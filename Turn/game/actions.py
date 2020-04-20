@@ -28,10 +28,41 @@ def action_handler(game_manager, player, action):
         talk(character,world)
     elif action[0] == "inventory" or action[0] == "i" or action[0] == "bag":
         open_inventory(character)
+        game_manager.world.display_map()
+        game_manager.iofeed.create_feed()
     elif action[0] == "close":
         close_inventory(character)
     elif action[0] == "turn":
         turn(character, world, feed)
+
+    elif action[0] == "view":
+        #view {item_name}
+
+        feed.info("Which Item?")
+        name = input()
+        name = name.split(' ')
+        format_name = ""
+        for word in name:
+            if word != name[0]:
+                format_name += " " + word
+            else: format_name += word
+            word = word[0].upper() + word[1:].lower()
+
+        name = format_name
+
+        if name in character.inventory.items:
+            sys.stdout.write("\x1B[2J\x1B[H")
+            character.inventory.items[name].view()
+        else:
+            feed.info("You do not have this item.")
+
+        print("Hit <ENTER> to exit.")
+        
+        input()
+        game_manager.world.display_map()
+        game_manager.new_feed()
+        feed.info(name)
+        
            #Feed Commands
     elif action[0] == "!feed":
         if action[1] == "move":
@@ -40,34 +71,10 @@ def action_handler(game_manager, player, action):
         elif action[1] == "background" or "bg" or "colour":
             pass
     elif action[0] == "menu":
+        menu(character, game_manager)
 
-        #Handle this case before moving on
-        #while action[1] == "":
-        feed.info("What would you like to do?")
-        feed.info(" 1) save")
-        feed.info(" 2) load")
-        feed.info(" 3) help")
-        feed.info(" 4) settings")
-        feed.info(" 5) exit menu")
-        feed.info(" 6) quit")
-        menu_option = feed.command()
-
-        if menu_option == "save" or menu_option == "1":
-            pass
-        elif menu_option == "load" or menu_option == "2":
-            pass
-        elif menu_option == "help" or menu_option == "3":
-            pass
-        elif menu_option == "settings" or menu_option == "4":
-            pass
-        elif menu_option == "exit menu" or menu_option == "5":
-            feed.clear()
-            return
-        elif menu_option == "quit" or menu_option == "6":
-            sys.stdout.write("\x1B[2J\x1B[H")
-            sys.exit(1)
-
-
+    elif action[0] == "stats":
+        stats(character, game_manager)
 
 def turn(character, world, feed):
     """
@@ -138,6 +145,36 @@ def move(character, direction, distance, game_manager):
     feed.info("Currently at: ("+ str(character.x) + "," + str(character.y)+")" )
     character.display()
 
+def menu(character, game_manager):
+        feed = game_manager.iofeed
+        #Handle this case before moving on
+        #while action[1] == "":
+        feed.info("What would you like to do?")
+        feed.info(" 1) save")
+        feed.info(" 2) load")
+        feed.info(" 3) help")
+        feed.info(" 4) settings")
+        feed.info(" 5) exit menu")
+        feed.info(" 6) quit")
+        menu_option = feed.command()
+
+        if menu_option == "save" or menu_option == "1":
+            feed.clear()
+            feed.info("Game Saved.")
+
+        elif menu_option == "load" or menu_option == "2":
+            pass
+        elif menu_option == "help" or menu_option == "3":
+            pass
+        elif menu_option == "settings" or menu_option == "4":
+            pass
+        elif menu_option == "exit menu" or menu_option == "5":
+            feed.clear()
+            return
+        elif menu_option == "quit" or menu_option == "6":
+            sys.stdout.write("\x1B[2J\x1B[H")
+            sys.exit(1)
+
 def run(character):
     """
     Increases movement, consumes more stamina.
@@ -180,6 +217,12 @@ def check_tile(world):
 
     #check if there is a portal
     pass
+
+def stats(character, game_manager):
+    feed = game_manager.iofeed
+    feed.info(character.name)
+    feed.info(("Health: " + str(character.health) + " / " + str(character.max_health)))
+    feed.info(("Stamina: " + str(character.stamina) + " / " + str(character.max_stamina)))
 
 def teleport(character, game_manager):
     """
