@@ -1,4 +1,5 @@
 import sys
+import random
 
 def action_handler(game_manager, player, action):
     world = game_manager.world
@@ -33,7 +34,7 @@ def action_handler(game_manager, player, action):
     elif action[0] == "close":
         close_inventory(character)
     elif action[0] == "turn":
-        turn(character, world, feed)
+        turn(character, game_manager, feed)
 
     elif action[0] == "view":
         #view {item_name}
@@ -76,11 +77,28 @@ def action_handler(game_manager, player, action):
     elif action[0] == "stats":
         stats(character, game_manager)
 
-def turn(character, world, feed):
+    elif action[0] == "who":
+        view_units(game_manager)
+        game_manager.iofeed.info("Press enter to continue...")
+        input()
+        game_manager.world.display_map()
+        game_manager.iofeed.create_feed()
+
+def turn(character, game_manager, feed):
     """
     This is where turn ends. This should leave this loop and let world manager handle new events.
     """
-    pass
+    character.stamina = character.max_stamina
+
+    #TODO:
+    # Go through other characters
+    for characters in game_manager.units:
+        units = game_manager.units[characters]
+        for unit in units:
+            #print(unit.name)
+            #TODO: random movements or events. attack enemies when close or wander.
+            #Also develop target
+            pass
 
 def attack(character, world):
     """
@@ -119,7 +137,7 @@ def move(character, direction, distance, game_manager):
         change_x = -1
     elif direction == "weast":
         character.health -= 1
-        feed.info("Your brain hurts. Loose 1 health.")
+        feed.info("Your brain hurts. Lose 1 health.")
 
     #TODO check path
     for i in range(distance):
@@ -224,6 +242,14 @@ def stats(character, game_manager):
     feed.info(("Health: " + str(character.health) + " / " + str(character.max_health)))
     feed.info(("Stamina: " + str(character.stamina) + " / " + str(character.max_stamina)))
 
+def view_units(game_manager):
+    
+    for characters in game_manager.units:
+        unit = game_manager.units[characters]
+        for char in unit:
+            char.display()
+            print(char.name)
+
 def teleport(character, game_manager):
     """
     Teleports the character to another point
@@ -245,4 +271,3 @@ def teleport(character, game_manager):
         (character.x, character.y) = portal[(x, y)]["target_loc"]
 
         game_manager.iofeed.info("You entered a new area")
-

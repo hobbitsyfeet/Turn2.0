@@ -15,6 +15,7 @@ class item():
         self.name = item_dict["name"]
 
         self.damage = item_dict["damage"]
+        self.defence = item_dict["defence"]
         self.range = item_dict["range"]
 
         self.durability = item_dict["durability"]
@@ -59,24 +60,24 @@ class item_spawn():
         lines = utilites.parse_input(filename)
 
         for line in lines:
-            try:
-                self.item_dict[int(line[0])] = {"id":int(line[0]),
-                                                "name":str(line[1]),
-                                                "damage":float(line[2]),
-                                                "range":int(line[3]),
-                                                "durability":int(line[4]),
-                                                "cost":float(line[5]),
-                                                "max_stack":int(line[6]),
-                                                "equip_location":str(line[7]),
-                                                "weight":float(line[8]),
-                                                "chance":float(line[9]),
-                                                "ability":str(line[10]),
-                                                "effect_amount":float(line[11]),
-                                                "modifiers":str(line[12]),
-                                                "description":str(line[13])
-                                                }
-            except:
-                print("Error loading:", line)
+
+            self.item_dict[int(line[0])] = {"id":int(line[0]),
+                                            "name":str(line[1]),
+                                            "damage":float(line[2]),
+                                            "defence":int(line[3]),
+                                            "range":int(line[4]),
+                                            "durability":int(line[5]),
+                                            "cost":float(line[6]),
+                                            "max_stack":int(line[7]),
+                                            "equip_location":str(line[8]),
+                                            "weight":float(line[9]),
+                                            "chance":float(line[10]),
+                                            "ability":str(line[11]),
+                                            "effect_amount":float(line[12]),
+                                            "modifiers":str(line[13]),
+                                            "description":str(line[14])
+                                            }
+
 
     def spawn(self, item_id, amount=1):
         spawn_item = item(self.item_dict[item_id])

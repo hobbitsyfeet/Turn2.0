@@ -28,11 +28,17 @@ class inventory():
                     self.feed.current_line = 0
                     self.feed.info("Inventory:\t\tDamage\tRange\tCost\tWeight")
 
+
             temp = self.items[item]
             temp_name = temp.name
             if len(temp.name) > 9:
                 temp_name = temp.name[:9]+"."
+            
+
+            
             self.feed.info(str(temp_name) + "\t->\t" + str(temp.damage) + "\t" + str(temp.range) + "\t" + str(temp.cost) + "\t" + str(temp.weight))
+        
+        input()
         self.feed.current_line = 0 #set back to top
         self.feed.width = temp_feed
 

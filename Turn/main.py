@@ -20,7 +20,7 @@ if __name__ == "__main__":
     manager.units['Hobbitsyfeet'][0].display()
 
     manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
-    
+    manager.spawn_unit(0, (5,4))
     while True:
 
         command = manager.iofeed.command()
@@ -31,6 +31,8 @@ if __name__ == "__main__":
         #command = input()
         manager.action(manager.units['Hobbitsyfeet'][0], command)
         manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
+
+        
         #manager.units["Hobbitsyfeet"].inventory
 
     # player = character.character()

@@ -3,6 +3,7 @@ from game import character
 from game import maps
 from game import feed
 from game import items
+from game import utilites
 
 class manager():
     def __init__(self):
@@ -10,9 +11,11 @@ class manager():
         #NOTE This structure allows direct access given a name, as well as iteration capabilities for Turns.
         self.units = {} #{Player1:[player],"Ghouls":[Ghoul1, Ghoul2]}
 
+
         self.world = None
 
         self.items = items.item_spawn()
+        self.game_units = character.unit_spawn()
         
         self.events = None #FUTURE
         self.states = None #FUTURE
@@ -32,13 +35,11 @@ class manager():
 
         spawner = items.item_spawn()
 
-        #NOTE THESE ARE TESTS
-        for i in range (30):
-            self.units[name][0].inventory.add(spawner.spawn(i)) #add a stick
-        for i in range (30):
-            self.units[name][0].inventory.add(spawner.spawn(i)) #add a stick
+        self.units[name][0].inventory.add(spawner.spawn(0)) #add a stick
 
     def load_units(self, filenames):
+        
+
 
         #self.units[name].inventory = self.iofeed #set inventory feed
         #self.units[name].inventory = self.iofeed #set inventory feed
@@ -47,22 +48,22 @@ class manager():
     def save_state(self, filename):
         pass
     
-    def spawn_unit(self, filename, location):
-        
-        #TODO implement (should return character object)
-        #unit = load_unit(filename, unit_id)
+    def spawn_unit(self, unit_id, location):
+        new_unit = self.game_units.spawn(unit_id, location[0], location[1])
 
-        
-        #if unit exists, append the unit to the key
-        if self.units[unit.name]:
-            self.units[unit.name].append(unit)
-        #else, create a new unit key and assign the value to a list of characters
-        else:
-            self.units[unit.name] = unit
+        if new_unit.name in self.units:
+            self.units[new_unit.name].append(new_unit)
+        self.units[new_unit.name] = [new_unit]
+        #TODO: spawn unit with items (GIVEN CHANCE!)
 
     
     def action(self, player, action):
-        actions.action_handler(self, player ,action)
+        actions.action_handler(self, player, action)
+
+        for characters in self.units:
+            unit = self.units[characters]
+            for char in unit:
+                char.display()
 
     def load_world(self, filename):
         self.world = maps.tilemap()
