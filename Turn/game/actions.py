@@ -1,5 +1,6 @@
 import sys
 import random
+from game import utilites
 
 def action_handler(game_manager, player, action):
     world = game_manager.world
@@ -17,6 +18,8 @@ def action_handler(game_manager, player, action):
         if len(action) == 2:
             action.append(1) #set move distance to 1
         move(character, action[1], int(action[2]), game_manager)
+    elif action[0] == "goto":
+        goto(character, action[1], action[2], game_manager)
     elif action[0] == "sneak":
         sneak(character)
     elif action[0] == "run":
@@ -127,13 +130,13 @@ def move(character, direction, distance, game_manager):
 
     change_y = 0
     change_x = 0
-    if direction == "n" or direction == "north":
+    if direction == "up" or direction == "north":
         change_y = -1
-    elif direction == "e" or direction == "east":
+    elif direction == "right" or direction == "east":
         change_x = 1
-    elif direction == "s" or direction == "south":
+    elif direction == "down" or direction == "south":
         change_y = 1
-    elif direction == "w" or direction == "west":
+    elif direction == "left" or direction == "west":
         change_x = -1
     elif direction == "weast":
         character.health -= 1
@@ -271,3 +274,45 @@ def teleport(character, game_manager):
         (character.x, character.y) = portal[(x, y)]["target_loc"]
 
         game_manager.iofeed.info("You entered a new area")
+
+def goto(character, x, y, game_manager):
+    path = utilites.next_move((character.x, character.y), (int(x),int(y)), game_manager.world)
+    path_cost = 0
+    for node in path:
+        px, py = node.point 
+        
+        change_x = px - character.x
+        change_y = py - character.y
+
+        next_tile = game_manager.world.get_tile((character.x + change_x), (character.y + change_y))
+        
+        path_cost += next_tile["cost"]
+        game_manager.iofeed.info(path_cost)
+        if (character.stamina >= path_cost):
+            game_manager.world.map_tiles.update_tile(px, py, '+', colour=(0,255,0), bg_colour=None)
+        else:
+            game_manager.world.map_tiles.update_tile(px, py, '+', colour=(255,0,0), bg_colour=None)
+    
+    game_manager.iofeed.info("Accept path? Y/N")
+    if input().lower() != "n":
+        for node in path:
+            
+            px, py = node.point
+            change_x = px - character.x
+            change_y = py - character.y
+            next_tile = game_manager.world.get_tile((character.x + change_x), (character.y + change_y))
+            if (character.stamina - next_tile["cost"] < 0):
+                game_manager.iofeed.info("Could Not move")
+                break
+            elif character.x == x and character.y == y:
+                game_manager.iofeed.info("You're already at that location")
+            else:
+                character.x += change_x
+                character.y += change_y
+                
+                character.stamina -= next_tile["cost"]
+
+
+
+    game_manager.world.display_map()
+    game_manager.iofeed.create_feed()
