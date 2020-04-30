@@ -4,6 +4,7 @@ from game import maps
 from game import feed
 from game import items
 from game import utilites
+import pickle
 
 class manager():
     def __init__(self):
@@ -11,19 +12,16 @@ class manager():
         #NOTE This structure allows direct access given a name, as well as iteration capabilities for Turns.
         self.units = {} #{Player1:[player],"Ghouls":[Ghoul1, Ghoul2]}
 
-
         self.world = None
 
         self.items = items.item_spawn()
-        self.game_units = character.unit_spawn()
+        self.unit_manager = character.unit_spawn()
         
         self.events = None #FUTURE
         self.states = None #FUTURE
         self.iofeed = feed.feed()
 
-
         self.worlds_path = "C:/Users/legom/Documents/GitHub/Turn2.0/saves/maps"
-
 
 
     def new_feed(self):
@@ -49,7 +47,7 @@ class manager():
         pass
     
     def spawn_unit(self, unit_id, location):
-        new_unit = self.game_units.spawn(unit_id, location[0], location[1])
+        new_unit = self.unit_manager.spawn(unit_id, location[0], location[1])
 
         if new_unit.name in self.units:
             self.units[new_unit.name].append(new_unit)
@@ -78,4 +76,8 @@ class manager():
             self.iofeed.top_left = (self.iofeed.top_left[1],self.world.height+1)
 
     def save_game(self, filename):
-        pass
+        pickle.dump(self, open("./saves/games/"+filename+".txt",'wb'))
+    
+    def load_game(self, filename):
+        pickle_out = open("./saves/games/"+filename+".txt",'rb')
+        self = pickle.load(filename+".txt")

@@ -180,6 +180,8 @@ def menu(character, game_manager):
         menu_option = feed.command()
 
         if menu_option == "save" or menu_option == "1":
+            print("Save Filename:")
+            game_manager.save_game(input())
             feed.clear()
             feed.info("Game Saved.")
 
@@ -311,8 +313,6 @@ def goto(character, x, y, game_manager):
                 character.y += change_y
                 
                 character.stamina -= next_tile["cost"]
-
-
 
     game_manager.world.display_map()
     game_manager.iofeed.create_feed()

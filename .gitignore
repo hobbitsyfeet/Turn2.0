@@ -3,3 +3,7 @@ env/
 *.pyc
 *.egg-info
 *.egg
+Turn/build
+Turn/game/assets/images
+*.exe
+*.spec

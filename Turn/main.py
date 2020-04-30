@@ -3,24 +3,40 @@ import cursor
 from os import system
 
 from game import world_manager
-
-
+from game import utilites
+import pickle
 
 if __name__ == "__main__":
     system('mode con: cols=200 lines=49')
 
-    manager = world_manager.manager()
-    manager.load_world("C:/Users/legom/Documents/GitHub/Turn2.0/saves/maps/Starting")
-    manager.world.display_map()
-    manager.new_feed()
+
+    print("1) NEW GAME OR 2) LOAD GAME")
+    select = input()
+    if int(select) == 1:
+        manager = world_manager.manager()
+        manager.load_world("C:/Users/legom/Documents/GitHub/Turn2.0/saves/maps/Starting")
+        manager.world.display_map()
+        manager.new_feed()
+
+        manager.new_character("Hobbitsyfeet")
+        manager.units['Hobbitsyfeet'][0].display()
+
+        manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
+        manager.spawn_unit(0, (5,4))
+    
+    else:
+        folder = "./saves/games/"
+        file = utilites.select_files(folder)
+        
+        manager = world_manager.manager()
+        pickle_in = open(folder + file,'rb')
+        manager = pickle.load(pickle_in)
+        manager.world.display_map()
+        manager.new_feed()
 
 
+        #manager.load_game(select)
 
-    manager.new_character("Hobbitsyfeet")
-    manager.units['Hobbitsyfeet'][0].display()
-
-    manager.iofeed.stat_bars(manager.units['Hobbitsyfeet'][0])
-    manager.spawn_unit(0, (5,4))
     while True:
 
         command = manager.iofeed.command()

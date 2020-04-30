@@ -58,6 +58,19 @@ class character():
     def load_character(self, filename):
         pass
 
+    def save_character(self, Temp=True):
+        '''
+        Saves a character with a filename. Temp is used for AI characters while saving the game. This will save inside of a 
+        Different folder from the user.
+        '''
+        save_string = ""
+        save_file = open((self.name+"_"+self.id)) #Opens the name and ID of the character
+
+        save_string += (self.name + '\t')
+        save_string += (self.id + '\t')
+        save_string += (self.symbol + '\t')
+        
+
     def define_unit(self, unit_dict):
         self.id = unit_dict["id"]
         self.name = unit_dict["name"]

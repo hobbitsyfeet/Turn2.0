@@ -1,4 +1,7 @@
 import numpy as np
+from os import listdir
+from os.path import isfile, join
+
     #Helper Functions
 def parse_input(filename, first_line=False):
     file = open(filename, 'r')
@@ -22,7 +25,27 @@ def parse_input(filename, first_line=False):
         parsed_lines.append(line)
     return parsed_lines
 
+def select_files(folder, extension=None):
+    print("Select a file:")
+    onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
+    if extension != None:
+        file_num = 0
+        for file in onlyfiles:
+            if file[:-3] == extension:
+                print(file_num,")", file[:-4])
+            else:
+                del file
+            file_num += 1
+    else:
+        file_num = 0
+        for file in onlyfiles:
+            print(file_num,")", file[:-4])
+            file_num += 1
+    
+    selected = input()
+
+    return onlyfiles[int(selected)]
 
 class Node:
     def __init__(self, value, point):
